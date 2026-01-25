@@ -1,0 +1,88 @@
+{
+  "apps": [
+    {
+      "id": "cleanshot",
+      "name": "CleanShot",
+      "slug": "cleanshot",
+      "description": "E-commerce product photography",
+      "category": ["Image Gen", "E-commerce"],
+      "tags": ["AI Agent", "Content"],
+      "pricing": "From €0.30/image",
+      "pricingTier": "All tiers",
+      "thumbnail": "/images/cleanshot/thumbnail.png",
+      "heroImage": "/images/cleanshot/hero.png",
+      "featured": true,
+      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/cleanshot",
+      "screenshots": [
+        "/images/cleanshot/example-1.png",
+        "/images/cleanshot/example-2.png"
+      ]
+    },
+    {
+      "id": "adshot",
+      "name": "Adshot",
+      "slug": "adshot",
+      "description": "Generate marketing visuals in 30 seconds",
+      "category": ["Image Gen", "Marketing"],
+      "tags": ["AI Agent", "Content"],
+      "pricing": "From €0.25/image",
+      "pricingTier": "All tiers",
+      "thumbnail": "/images/adshot/thumbnail.png",
+      "heroImage": "/images/adshot/hero.png",
+      "featured": true,
+      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/adshot"
+    },
+    {
+      "id": "image-models",
+      "name": "Image Models",
+      "slug": "image-models",
+      "description": "9 AI image models in one interface",
+      "category": ["Image Gen"],
+      "tags": ["Data"],
+      "pricing": "From €0.001/image",
+      "pricingTier": "All tiers",
+      "thumbnail": "/images/image-models/thumbnail.png",
+      "featured": false,
+      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/image-models"
+    },
+    {
+      "id": "chat-models",
+      "name": "Chat Models",
+      "slug": "chat-models",
+      "description": "Chat with 15 AI models in one interface",
+      "category": ["Chat"],
+      "tags": ["Data"],
+      "pricing": "From €0.001/message",
+      "pricingTier": "All tiers",
+      "thumbnail": "/images/chat-models/thumbnail.png",
+      "featured": true,
+      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/chat-models"
+    },
+    {
+      "id": "3d-studio",
+      "name": "3D Studio",
+      "slug": "3d-studio",
+      "description": "Turn text into 3D models",
+      "category": ["3D"],
+      "tags": ["AI Agent", "Content"],
+      "pricing": "From €0.20/model",
+      "pricingTier": "Pro, Business",
+      "thumbnail": "/images/3d-studio/thumbnail.png",
+      "featured": false,
+      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/3d-studio"
+    },
+    {
+      "id": "marginboard",
+      "name": "MarginBoard",
+      "slug": "marginboard",
+      "description": "Understand your margins in 5 minutes",
+      "category": ["Business"],
+      "tags": ["Data"],
+      "pricing": "From €0.50/analysis",
+      "pricingTier": "Business",
+      "thumbnail": "/images/marginboard/thumbnail.png",
+      "featured": false,
+      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/marginboard"
+    }
+  ]
+}
