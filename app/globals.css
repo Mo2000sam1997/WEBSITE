@@ -51,6 +51,24 @@
   animation: gradientMove 30s ease infinite;
 }
 
+/* Infinite scroll animation for carousels */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 20s linear infinite;
+}
+
+.animate-scroll-infinite:hover {
+  animation-play-state: paused;
+}
+
 /* Subtle noise overlay */
 .noise-overlay::before {
   content: '';

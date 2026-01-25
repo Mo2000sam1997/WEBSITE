@@ -37,7 +37,7 @@ export default function AppGrid() {
   const [isSortDropdownOpen, setIsSortDropdownOpen] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>('name');
   const [currentPage, setCurrentPage] = useState(1);
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
   const categoryRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const industryDropdownRef = useRef<HTMLDivElement>(null);
@@ -48,18 +48,14 @@ export default function AppGrid() {
     ? 'All Industries'
     : selectedIndustries.join(',');
 
-  // Als we niet op "name" sorteren, hebben we alle data nodig voor correcte sortering
-  const needsFullData = sortOption !== 'name';
-
   const {
     data,
     isLoading,
     isError,
     error
-  } = useMarketplaceTemplates(debouncedSearchTerm, selectedCategory, industryFilter, currentPage, needsFullData);
+  } = useMarketplaceTemplates(debouncedSearchTerm, selectedCategory, industryFilter, currentPage, true);
 
   let templates = data?.templates || [];
-  let hasMore = data?.hasMore || false;
 
   // Client-side sorting
   templates = [...templates].sort((a, b) => {
