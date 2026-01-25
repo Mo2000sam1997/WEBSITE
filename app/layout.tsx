@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { QueryProvider } from "@/components/QueryProvider";
+import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
   title: "Labobox - All the AI tools you need, in one place",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="antialiased">
         <QueryProvider>{children}</QueryProvider>
+        <CookieBanner />
       </body>
     </html>
   );

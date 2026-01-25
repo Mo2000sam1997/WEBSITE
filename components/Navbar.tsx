@@ -51,11 +51,11 @@ export default function Navbar() {
             <Link href="/pricing" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
               Pricing
             </Link>
-            <Link href="/about" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-              About
+            <Link href="/docs" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+              Docs
             </Link>
-            <Link href="/contact" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-              Contact
+            <Link href="/blog" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+              Blog
             </Link>
           </div>
 
@@ -99,11 +99,11 @@ export default function Navbar() {
               <Link href="/pricing" className="block text-sm text-text-secondary py-2" onClick={() => setMobileMenuOpen(false)}>
                 Pricing
               </Link>
-              <Link href="/about" className="block text-sm text-text-secondary py-2" onClick={() => setMobileMenuOpen(false)}>
-                About
+              <Link href="/docs" className="block text-sm text-text-secondary py-2" onClick={() => setMobileMenuOpen(false)}>
+                Docs
               </Link>
-              <Link href="/contact" className="block text-sm text-text-secondary py-2" onClick={() => setMobileMenuOpen(false)}>
-                Contact
+              <Link href="/blog" className="block text-sm text-text-secondary py-2" onClick={() => setMobileMenuOpen(false)}>
+                Blog
               </Link>
               <Link 
                 href="/login" 

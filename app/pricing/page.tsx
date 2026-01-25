@@ -190,11 +190,9 @@ export default function PricingPage() {
             <span className={`text-sm font-medium ${isYearly ? "text-text-primary" : "text-text-secondary"}`}>
               Annual
             </span>
-            {isYearly && (
-              <span className="px-2 py-1 rounded-md bg-success/20 text-success text-xs font-medium">
-                Save 20%
-              </span>
-            )}
+            <span className={`px-2 py-1 rounded-md text-xs font-medium transition-all ${isYearly ? "bg-success/20 text-success" : "bg-white/10 text-text-secondary"}`}>
+              -20%
+            </span>
           </motion.div>
         </div>
       </section>
@@ -202,14 +200,14 @@ export default function PricingPage() {
       {/* Pricing Cards */}
       <section className="pb-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 items-stretch">
             {plans.map((plan, index) => (
               <motion.div
                 key={plan.name}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative rounded-2xl p-6 flex flex-col ${
+                className={`relative rounded-2xl p-6 flex flex-col h-full ${
                   plan.isEnterprise
                     ? "bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] border border-white/10"
                     : plan.popular
@@ -226,39 +224,42 @@ export default function PricingPage() {
                   </div>
                 )}
 
-                {/* Icon */}
-                <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                  style={{ backgroundColor: `${plan.color}20` }}
-                >
-                  <plan.icon className="w-6 h-6" style={{ color: plan.color }} />
-                </div>
+                {/* Top Section - Fixed Height */}
+                <div className="min-h-[200px]">
+                  {/* Icon */}
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                    style={{ backgroundColor: `${plan.color}20` }}
+                  >
+                    <plan.icon className="w-6 h-6" style={{ color: plan.color }} />
+                  </div>
 
-                {/* Plan Name */}
-                <h3 className="text-xl font-bold text-text-primary mb-1">{plan.name}</h3>
-                <p className="text-sm text-text-secondary mb-4">{plan.description}</p>
+                  {/* Plan Name */}
+                  <h3 className="text-xl font-bold text-text-primary mb-1">{plan.name}</h3>
+                  <p className="text-sm text-text-secondary mb-4 min-h-[40px]">{plan.description}</p>
 
-                {/* Price */}
-                <div className="mb-4">
-                  {plan.monthlyPrice !== null ? (
-                    <>
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-3xl font-bold text-text-primary">
-                          €{isYearly ? plan.yearlyPrice : plan.monthlyPrice}
-                        </span>
-                        <span className="text-text-secondary text-sm">/month</span>
+                  {/* Price */}
+                  <div className="mb-4 min-h-[52px]">
+                    {plan.monthlyPrice !== null ? (
+                      <>
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-3xl font-bold text-text-primary">
+                            €{isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                          </span>
+                          <span className="text-text-secondary text-sm">/month</span>
+                        </div>
+                        {isYearly && plan.monthlyPrice > 0 && (
+                          <p className="text-xs text-text-tertiary mt-1">
+                            Billed €{(plan.yearlyPrice || 0) * 12}/year
+                          </p>
+                        )}
+                      </>
+                    ) : (
+                      <div className="text-2xl font-bold text-text-primary">
+                        Custom
                       </div>
-                      {isYearly && plan.monthlyPrice > 0 && (
-                        <p className="text-xs text-text-tertiary mt-1">
-                          Billed €{(plan.yearlyPrice || 0) * 12}/year
-                        </p>
-                      )}
-                    </>
-                  ) : (
-                    <div className="text-2xl font-bold text-text-primary">
-                      Custom
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
 
                 {/* Credits */}
@@ -270,7 +271,7 @@ export default function PricingPage() {
                 {/* CTA Button */}
                 <Link
                   href={plan.href}
-                  className={`block w-full py-3 rounded-lg text-center font-medium transition-all duration-300 mb-4 ${
+                  className={`block w-full py-3 rounded-lg text-center font-medium transition-all duration-300 mb-6 ${
                     plan.popular
                       ? "bg-accent-primary text-black hover:bg-accent-primary/90"
                       : plan.isEnterprise
@@ -282,7 +283,7 @@ export default function PricingPage() {
                 </Link>
 
                 {/* Features */}
-                <ul className="space-y-3 mt-auto">
+                <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm">
                       <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: plan.color }} />
