@@ -10,7 +10,13 @@ const GLOW_ORBS = [
   { left: "55%", top: "85%", color: "rgba(162, 121, 254, 0.06)", size: 420, delay: 6, duration: 11 },
 ];
 
-export default function FloatingBlocks() {
+interface FloatingBlocksProps {
+  intensity?: "normal" | "subtle";
+}
+
+export default function FloatingBlocks({ intensity = "normal" }: FloatingBlocksProps) {
+  const opacityMultiplier = intensity === "subtle" ? 0.4 : 1;
+  
   return (
     <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden">
       {GLOW_ORBS.map((orb, i) => (
@@ -27,7 +33,7 @@ export default function FloatingBlocks() {
             transform: 'translateX(-50%)',
           }}
           animate={{
-            opacity: [0, 0.8, 0],
+            opacity: [0, 0.8 * opacityMultiplier, 0],
           }}
           transition={{
             duration: orb.duration,

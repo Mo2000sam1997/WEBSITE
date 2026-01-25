@@ -1,0 +1,328 @@
+{
+  "_meta": {
+    "last_updated": "2026-01-25",
+    "updated_by": "Jeff",
+    "source": "Exacte prijzen uit n8n workflows (ChatModels-PROD, ImageModels-PROD, 3D Mode-PROD)",
+    "providers": {
+      "chat": "OpenRouter",
+      "image": "OpenRouter + fal.ai",
+      "3d": "fal.ai (Hunyuan3D-v3)"
+    },
+    "update_frequency": "Quarterly (API prijzen veranderen ~2-3x per jaar)"
+  },
+
+  "_credit_system": {
+    "definition": "1 credit = 1 goedkoop model chat (Llama, Qwen, GPT-5 Nano, Gemini Flash)",
+    "value_eur": 0.001,
+    "margin_standard": "1.5x op API kosten",
+    "margin_custom_apps": "2x op API kosten (hoger voor SECRET apps)"
+  },
+
+  "subscription_tiers": {
+    "free": { "price_eur": 0, "credits": 750 },
+    "basic": { "price_eur": 19, "credits": 5000 },
+    "pro": { "price_eur": 79, "credits": 25000 },
+    "team": { "price_eur": 279, "credits": 100000 },
+    "enterprise": { "price_eur": "custom", "credits": "unlimited" }
+  },
+
+  "top_up": {
+    "_note": "Extra credits bijkopen (alle betaalde tiers)",
+    "packages": {
+      "small": { "credits": 1000, "price_eur": 5 },
+      "medium": { "credits": 5000, "price_eur": 20 },
+      "large": { "credits": 15000, "price_eur": 50 }
+    },
+    "price_per_1000_credits": 5,
+    "available_for": ["basic", "pro", "team", "enterprise"]
+  },
+
+  "chat_models": {
+    "_source": "ChatModels - PROD.json (15 models via OpenRouter)",
+    "_unit": "$ per million tokens",
+    "_avg_tokens_per_msg": 500,
+
+    "llama-3.3-70b": {
+      "display_name": "Llama 3.3 70B (FREE)",
+      "openrouter_id": "meta-llama/llama-3.3-70b-instruct:free",
+      "input_per_1m": 0,
+      "output_per_1m": 0,
+      "credits_per_message": 1,
+      "tier": "free"
+    },
+    "llama-3.1-8b": {
+      "display_name": "Llama 3.1 8B",
+      "openrouter_id": "meta-llama/llama-3.1-8b-instruct",
+      "input_per_1m": 0.04,
+      "output_per_1m": 0.10,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "qwen3-8b": {
+      "display_name": "Qwen3 8B",
+      "openrouter_id": "qwen/qwen-3-8b",
+      "input_per_1m": 0.14,
+      "output_per_1m": 0.14,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "gpt-5-nano": {
+      "display_name": "GPT-5 Nano",
+      "openrouter_id": "openai/gpt-5-nano",
+      "input_per_1m": 0.10,
+      "output_per_1m": 0.40,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "gemini-2.5-flash": {
+      "display_name": "Gemini 2.5 Flash",
+      "openrouter_id": "google/gemini-2.5-flash",
+      "input_per_1m": 0.15,
+      "output_per_1m": 0.60,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "mistral-nemo": {
+      "display_name": "Mistral Nemo",
+      "openrouter_id": "mistralai/mistral-nemo",
+      "input_per_1m": 0.30,
+      "output_per_1m": 0.30,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "gpt-5-mini": {
+      "display_name": "GPT-5 Mini",
+      "openrouter_id": "openai/gpt-5-mini",
+      "input_per_1m": 0.30,
+      "output_per_1m": 1.20,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "mistral-small-3.1": {
+      "display_name": "Mistral Small 3.1",
+      "openrouter_id": "mistralai/mistral-small-3.1",
+      "input_per_1m": 0.40,
+      "output_per_1m": 1.20,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "deepseek-v3.2": {
+      "display_name": "DeepSeek V3.2",
+      "openrouter_id": "deepseek/deepseek-chat-v3.2",
+      "input_per_1m": 0.55,
+      "output_per_1m": 2.19,
+      "credits_per_message": 1,
+      "tier": "budget"
+    },
+    "claude-haiku-4.5": {
+      "display_name": "Claude Haiku 4.5",
+      "openrouter_id": "anthropic/claude-haiku-4.5",
+      "input_per_1m": 0.50,
+      "output_per_1m": 2.50,
+      "credits_per_message": 2,
+      "tier": "standard"
+    },
+    "grok-4-fast": {
+      "display_name": "Grok 4 Fast",
+      "openrouter_id": "x-ai/grok-4-fast",
+      "input_per_1m": 1.00,
+      "output_per_1m": 3.00,
+      "credits_per_message": 2,
+      "tier": "standard"
+    },
+    "perplexity-sonar": {
+      "display_name": "Perplexity Sonar",
+      "openrouter_id": "perplexity/sonar-online",
+      "input_per_1m": 2.00,
+      "output_per_1m": 6.00,
+      "credits_per_message": 3,
+      "tier": "standard",
+      "note": "Inclusief real-time web search"
+    },
+    "gemini-2.5-pro": {
+      "display_name": "Gemini 2.5 Pro",
+      "openrouter_id": "google/gemini-2.5-pro",
+      "input_per_1m": 2.50,
+      "output_per_1m": 10.00,
+      "credits_per_message": 5,
+      "tier": "standard"
+    },
+    "gpt-5-chat": {
+      "display_name": "GPT-5 Chat",
+      "openrouter_id": "openai/gpt-5",
+      "input_per_1m": 5.00,
+      "output_per_1m": 15.00,
+      "credits_per_message": 8,
+      "tier": "premium"
+    },
+    "claude-sonnet-4.5": {
+      "display_name": "Claude Sonnet 4.5",
+      "openrouter_id": "anthropic/claude-sonnet-4.5",
+      "input_per_1m": 6.00,
+      "output_per_1m": 30.00,
+      "credits_per_message": 14,
+      "tier": "premium"
+    }
+  },
+
+  "image_models": {
+    "_source": "ImageModels - PROD.json (9 models)",
+    "_unit": "$ per image (1MP)",
+
+    "flux-2-flex": {
+      "display_name": "Flux.2 Flex",
+      "fal_id": "fal-ai/flux/schnell",
+      "provider": "fal.ai",
+      "price_per_image": 0.003,
+      "credits_per_image": 5,
+      "tier": "budget",
+      "note": "Snelste model"
+    },
+    "gemini-flash-image": {
+      "display_name": "Gemini Flash",
+      "openrouter_id": "google/gemini-flash-image",
+      "provider": "openrouter",
+      "price_per_image": 0.01,
+      "credits_per_image": 15,
+      "tier": "budget"
+    },
+    "gpt-5-mini-image": {
+      "display_name": "GPT-5 Mini",
+      "openrouter_id": "openai/gpt-5-mini-image",
+      "provider": "openrouter",
+      "price_per_image": 0.02,
+      "credits_per_image": 30,
+      "tier": "standard"
+    },
+    "gemini-pro-image": {
+      "display_name": "Gemini Pro",
+      "openrouter_id": "google/gemini-pro-image",
+      "provider": "openrouter",
+      "price_per_image": 0.02,
+      "credits_per_image": 30,
+      "tier": "standard"
+    },
+    "seedream-4.5": {
+      "display_name": "Seedream 4.5",
+      "fal_id": "fal-ai/seedream/v4.5",
+      "provider": "fal.ai",
+      "price_per_image": 0.03,
+      "credits_per_image": 45,
+      "tier": "standard"
+    },
+    "flux-2-pro": {
+      "display_name": "Flux.2 Pro",
+      "fal_id": "fal-ai/flux-2-pro",
+      "provider": "fal.ai",
+      "price_per_image": 0.03,
+      "credits_per_image": 45,
+      "tier": "standard"
+    },
+    "gemini-2.5-image": {
+      "display_name": "Gemini 2.5",
+      "openrouter_id": "google/gemini-2.5-image",
+      "provider": "openrouter",
+      "price_per_image": 0.03,
+      "credits_per_image": 45,
+      "tier": "standard"
+    },
+    "gpt-5-standard-image": {
+      "display_name": "GPT-5 Standard",
+      "openrouter_id": "openai/gpt-5-standard-image",
+      "provider": "openrouter",
+      "price_per_image": 0.04,
+      "credits_per_image": 60,
+      "tier": "premium"
+    },
+    "flux-2-max": {
+      "display_name": "Flux.2 Max",
+      "fal_id": "fal-ai/flux-2-max",
+      "provider": "fal.ai",
+      "price_per_image": 0.05,
+      "credits_per_image": 75,
+      "tier": "premium",
+      "note": "Hoogste kwaliteit"
+    }
+  },
+
+  "custom_apps": {
+    "_note": "SECRET apps met 2x margin - LOCKED voor free users",
+    "_source": "3D Mode - PROD.json + CleanShot/Adshot workflows",
+    "_min_tier": "basic",
+
+    "cleanshot": {
+      "display_name": "CleanShot",
+      "backend": "FLUX Pro + enhancement",
+      "api_cost": 0.05,
+      "margin": "2x",
+      "credits_per_image": 100,
+      "model_visibility": "SECRET",
+      "min_tier": "basic"
+    },
+    "adshot": {
+      "display_name": "Adshot",
+      "backend": "FLUX Pro + creative",
+      "api_cost": 0.06,
+      "margin": "2x",
+      "credits_per_image": 120,
+      "model_visibility": "SECRET",
+      "min_tier": "basic"
+    },
+    "3d-studio": {
+      "display_name": "3D Studio",
+      "backend": "fal.ai Hunyuan3D-v3",
+      "fal_pricing": {
+        "normal": 0.375,
+        "lowpoly": 0.45,
+        "geometry": 0.225
+      },
+      "margin": "2x",
+      "credits_per_model": 790,
+      "price_eur": 0.79,
+      "model_visibility": "SECRET",
+      "min_tier": "basic"
+    }
+  },
+
+  "credit_summary": {
+    "chat": {
+      "1_credit": "Llama, Qwen, GPT-5 Nano/Mini, Gemini Flash, Mistral, DeepSeek",
+      "2_credits": "Claude Haiku, Grok Fast",
+      "3_credits": "Perplexity (met web search)",
+      "5_credits": "Gemini 2.5 Pro",
+      "8_credits": "GPT-5 Chat",
+      "14_credits": "Claude Sonnet 4.5"
+    },
+    "image": {
+      "5_credits": "Flux.2 Flex",
+      "15_credits": "Gemini Flash",
+      "30_credits": "GPT-5 Mini, Gemini Pro",
+      "45_credits": "Flux.2 Pro, Seedream 4.5, Gemini 2.5",
+      "60_credits": "GPT-5 Standard",
+      "75_credits": "Flux.2 Max"
+    },
+    "custom": {
+      "100_credits": "CleanShot",
+      "120_credits": "Adshot",
+      "790_credits": "3D Studio (€0.79)"
+    }
+  },
+
+  "examples": {
+    "free_750": {
+      "chats": "750 budget chats OF 93 GPT-5 Chat OF 53 Claude Sonnet",
+      "images": "150 Flux.2 Flex OF 16 Flux.2 Pro",
+      "custom": "🔒 LOCKED (upgrade naar Basic)"
+    },
+    "basic_5000": {
+      "chats": "5000 budget chats OF 625 GPT-5 Chat",
+      "images": "1000 Flux.2 Flex OF 111 Flux.2 Pro",
+      "custom": "50 CleanShot OF 6 3D models"
+    },
+    "pro_25000": {
+      "chats": "25000 budget chats OF 3125 GPT-5 Chat",
+      "images": "5000 Flux.2 Flex OF 555 Flux.2 Pro",
+      "custom": "250 CleanShot OF 31 3D models"
+    }
+  }
+}

@@ -117,31 +117,195 @@ Tags:
 - 🌸 Roze #fc85d7 = Content
 ```
 
-### Huidige Apps (5)
-| App | Beschrijving | Prijs | Tags | Model |
-|-----|--------------|-------|------|-------|
-| CleanShot | E-commerce photos | €0.30/img | 🟢🌸 | SECRET |
-| Adshot | Marketing visuals | €0.35/img | 🟢🌸 | SECRET |
-| Image Models | 9 AI image models | €0.05/img | 🌸 | PUBLIC |
-| Chat Models | 15 AI chat models | €0.001/msg | 🟢 | PUBLIC |
-| 3D Studio | 3D generation | €0.50/model | 🌸🔵 | SECRET |
+---
 
-### Model Protection
-- **SECRET**: CleanShot, Adshot, 3D Studio (zeg "AI-powered", NOOIT welke model)
-- **PUBLIC**: Image Models, Chat Models (toon dropdown met modellen)
+## TECHNISCHE INFORMATIE
+
+### API Providers (Jeff gebruikt deze)
+
+| Provider | Wat | URL |
+|----------|-----|-----|
+| OpenRouter | AI Chat & Image Models | https://openrouter.ai |
+| fal.ai | 3D Generation | https://fal.ai |
+| Firebase | Database + Storage | https://firebase.google.com |
+| Deepgram | Speech-to-Text | https://deepgram.com |
+
+**BELANGRIJK**: POL hoeft GEEN API keys te weten. Jeff beheert alle API's.
+
+### Webhook URLs (n8n endpoints)
+
+| App | Webhook URL |
+|-----|-------------|
+| CleanShot | `https://labobox.app.n8n.cloud/webhook/cleanshot` |
+| Adshot | `https://labobox.app.n8n.cloud/webhook/adshot` |
+| Image Models | `https://labobox.app.n8n.cloud/webhook/imagestack` |
+| Chat Models | `https://labobox.app.n8n.cloud/webhook/chatmodels` |
+| 3D Studio | `https://labobox.app.n8n.cloud/webhook/3dstudio` |
+| MeetingApple | `https://labobox.app.n8n.cloud/webhook/meetingapple` |
+
+### Firestore Structure
+
+```
+labobox-db/
+├── users/
+│   └── {userId}/
+│       ├── email
+│       ├── credits
+│       ├── plan (free/basic/pro/team/enterprise)
+│       └── created
+│
+├── generations/
+│   └── {generationId}/
+│       ├── userId
+│       ├── app (cleanshot/adshot/imagestack/etc)
+│       ├── status (pending/processing/completed/failed)
+│       ├── input (user's input data)
+│       ├── output (result URL/data)
+│       ├── creditsUsed
+│       └── created
+│
+└── apps/
+    └── {appId}/
+        ├── name
+        ├── description
+        ├── pricing
+        ├── tags
+        └── active
+```
+
+**BELANGRIJKE REGEL**:
+- Frontend (website) CREËERT documenten
+- n8n (Jeff) ALLEEN UPDATET documenten (PATCH method)
+- NOOIT Jeff direct documenten laten maken
+
+---
+
+## ALLE APPS (Compleet Overzicht)
+
+### 1. CleanShot
+| Veld | Waarde |
+|------|--------|
+| Beschrijving | E-commerce product photography |
+| Pricing | €0.30/image |
+| Tags | 🟢 AI Agent, 🌸 Content |
+| Model | **SECRET** (zeg "AI-powered", NOOIT welke model) |
+| Webhook | `webhook/cleanshot` |
+| Status | ✅ LIVE |
+
+### 2. Adshot
+| Veld | Waarde |
+|------|--------|
+| Beschrijving | Marketing visuals generator |
+| Pricing | €0.35/image |
+| Tags | 🟢 AI Agent, 🌸 Content |
+| Model | **SECRET** |
+| Webhook | `webhook/adshot` |
+| Status | ✅ LIVE |
+
+### 3. Image Models
+| Veld | Waarde |
+|------|--------|
+| Beschrijving | 9 AI image models in one place |
+| Pricing | €0.05/image (basis), varies per model |
+| Tags | 🌸 Content |
+| Model | **PUBLIC** (toon dropdown met alle modellen) |
+| Webhook | `webhook/imagestack` |
+| Status | ✅ LIVE |
+
+**Beschikbare Modellen:**
+- FLUX 1.1 Pro (Schnell)
+- FLUX 1.1 Pro Ultra
+- Recraft V3
+- Ideogram V2
+- Google Imagen 3
+- Stable Diffusion 3.5
+- DALL-E 3
+- Midjourney (via API)
+- Leonardo AI
+
+### 4. Chat Models
+| Veld | Waarde |
+|------|--------|
+| Beschrijving | 15 AI chat models in one place |
+| Pricing | €0.001/message (basis), varies per model |
+| Tags | 🟢 AI Agent |
+| Model | **PUBLIC** (toon dropdown met alle modellen) |
+| Webhook | `webhook/chatmodels` |
+| Status | ✅ LIVE |
+
+**Beschikbare Modellen:**
+- GPT-4o, GPT-4o-mini, GPT-3.5-turbo
+- Claude 3.5 Sonnet, Claude 3 Haiku
+- Gemini 1.5 Pro, Gemini 1.5 Flash
+- Llama 3.1 70B, Llama 3.1 8B
+- Mistral Large, Mistral Medium
+- Perplexity Online
+- DeepSeek V2
+- Command R+
+
+### 5. 3D Studio
+| Veld | Waarde |
+|------|--------|
+| Beschrijving | Text to 3D model generation |
+| Pricing | €0.50/model |
+| Tags | 🌸 Content, 🔵 Data |
+| Model | **SECRET** (fal.ai backend) |
+| Webhook | `webhook/3dstudio` |
+| Status | ✅ LIVE |
+
+### 6. MeetingApple (Upcoming)
+| Veld | Waarde |
+|------|--------|
+| Beschrijving | Meeting transcription & summary |
+| Pricing | TBD |
+| Tags | 🟢 AI Agent, 🔵 Data |
+| Model | **SECRET** (Deepgram + OpenRouter) |
+| Webhook | `webhook/meetingapple` |
+| Status | ⏳ IN DEVELOPMENT |
+
+---
+
+## MODEL PROTECTION (KRITIEK!)
+
+```
+⚠️ NOOIT onthullen welke AI model achter SECRET apps zit!
+
+SECRET APPS:
+- CleanShot → Zeg "AI-powered image enhancement"
+- Adshot → Zeg "AI-powered creative generation"
+- 3D Studio → Zeg "AI-powered 3D modeling"
+
+PUBLIC APPS:
+- Image Models → Toon dropdown met alle 9 modellen
+- Chat Models → Toon dropdown met alle 15 modellen
+```
 
 ---
 
 ## Pricing Tiers
 
-| Tier | Prijs | Voor wie |
-|------|-------|----------|
-| Starter | €19/month | Hobbyisten |
-| Pro | €79/month | Freelancers |
-| Business | €249/month | Bedrijven |
-| Enterprise | Custom | Grote bedrijven |
+| Tier | Prijs | Credits | Apps |
+|------|-------|---------|------|
+| Free | €0/month | 750 | Standard Apps only |
+| Basic | €19/month | 5,000 | Standard + Premium Apps |
+| Pro | €79/month | 25,000 | Standard + Premium Apps |
+| Team | €279/month | 100,000 | Standard + Premium Apps |
+| Enterprise | Custom | Unlimited | Alles + Custom SLA |
 
-**Credits**: 1 credit = 1 message (duurder models = meer credits)
+**App Types:**
+- **Standard Apps**: Chat Models (15 AI) + Image Models (9 AI) - alle tiers
+- **Premium Apps**: CleanShot, Adshot, 3D Studio - Basic+ only
+
+**Credits Systeem** (zie `data/pricing.json` voor exacte prijzen):
+- 1 credit = 1 budget chat (Llama, GPT-5 Nano, Gemini Flash)
+- Premium chat: 2-14 credits (Claude Sonnet = 14)
+- Images: 5-75 credits (Flux Flex = 5, Flux Max = 75)
+- Premium Apps: 100-790 credits (CleanShot = 100, 3D = 790)
+
+**Top-Up** (extra credits bijkopen - alleen betaalde plans):
+- 1,000 credits = €5
+- 5,000 credits = €20
+- 15,000 credits = €50
 
 ---
 
@@ -197,15 +361,32 @@ labobox.app/
 
 ---
 
-## Huidige Status
+## Huidige Status (Updated 2026-01-25)
 
-**Homepage**: 70% klaar
-- ✅ Hero sectie
-- ✅ Dark theme
-- ⏳ App cards (5 stuks)
-- ⏳ Footer
+**Homepage**: ✅ 100% klaar
+- ✅ Hero sectie met animated blocks
+- ✅ Dark theme (#0a0a0a)
+- ✅ Category Cards
+- ✅ App Grid (Firebase connected)
+- ✅ How It Works section
+- ✅ CTA Banner
+- ✅ Footer
+- ✅ FloatingBlocks background effect
 
-**Next**: App cards toevoegen, dan footer, dan product pages
+**Apps Page** (`/apps`): ✅ 100% klaar
+- ✅ Hero carousel met 9 featured apps
+- ✅ Auto-play met progress indicators
+- ✅ Industry & category tags
+- ✅ App Grid met zoeken & filters
+- ✅ CTA Banner
+
+**Pricing Page** (`/pricing`): ✅ 100% klaar
+- ✅ 5 plans: Free, Basic, Pro, Team, Enterprise
+- ✅ Monthly/Annual toggle (20% korting)
+- ✅ FAQ accordion
+- ✅ Subtle FloatingBlocks
+
+**Next**: About page, Contact page
 
 ---
 
