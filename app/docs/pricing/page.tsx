@@ -43,7 +43,7 @@ const plans = [
     features: [
       { text: "25,000 credits / month", included: true },
       { text: "All apps", included: true },
-      { text: "Priority support", included: true },
+      { text: "Email support", included: true },
       { text: "Credits rollover", included: true },
       { text: "API access (coming soon)", included: true },
     ],

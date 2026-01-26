@@ -21,9 +21,9 @@ export default function AdshotPage() {
       description="Generate scroll-stopping ads in 30 seconds. Perfect for Instagram, Facebook, LinkedIn."
       tableOfContents={[
         { title: "Overview", href: "#overview" },
+        { title: "13 Styles", href: "#styles" },
         { title: "How it works", href: "#how-it-works" },
-        { title: "Use cases", href: "#use-cases" },
-        { title: "Templates", href: "#templates" },
+        { title: "Tips", href: "#tips" },
       ]}
     >
       {/* Overview */}
@@ -33,51 +33,133 @@ export default function AdshotPage() {
             <Megaphone className="w-7 h-7 text-orange-400" />
           </div>
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <h2 className="text-xl font-semibold text-text-primary">Premium App</h2>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-400">Basic+</span>
-            </div>
+            <h2 className="text-xl font-semibold text-text-primary mb-1">Adshot</h2>
             <p className="text-text-secondary flex items-center gap-1">
-              <CreditIcon size={14} /> 120 per image
+              <CreditIcon size={14} /> 120 per generation (5 scenes)
             </p>
           </div>
         </div>
 
         <p className="text-text-secondary mb-6">
-          Adshot generates professional marketing visuals based on your description. 
-          No designer needed. Describe what you want and get ad-ready content in seconds.
+          Upload <strong className="text-text-primary">1 product photo</strong> and get 
+          <strong className="text-text-primary"> 5 unique marketing scenes</strong>. 
+          Each scene places your product in a different creative context - perfect for ads, social media, and campaigns.
         </p>
 
-        <div className="bg-bg-secondary border border-white/10 rounded-xl p-6 mb-6">
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="aspect-square rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary">
-              [Placeholder: Instagram ad]
-            </div>
-            <div className="aspect-square rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary">
-              [Placeholder: Facebook ad]
-            </div>
-            <div className="aspect-square rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary">
-              [Placeholder: LinkedIn ad]
-            </div>
-          </div>
+        <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl p-4 mb-6">
+          <p className="text-sm text-orange-200">
+            <strong>Key difference from CleanShot:</strong> Adshot creates <em>diverse marketing visuals</em> 
+            with different backgrounds and moods. CleanShot creates <em>consistent product catalog photos</em>.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-4 gap-4">
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10 text-center">
             <div className="flex items-center justify-center gap-2 text-2xl font-bold text-text-primary mb-1">
               <CreditIcon size={28} /> 120
             </div>
-            <div className="text-sm text-text-secondary">Per image</div>
+            <div className="text-sm text-text-secondary">Per generation</div>
           </div>
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10 text-center">
-            <div className="text-2xl font-bold text-accent-primary mb-1">~30s</div>
-            <div className="text-sm text-text-secondary">Average time</div>
+            <div className="text-2xl font-bold text-accent-primary mb-1">1+</div>
+            <div className="text-sm text-text-secondary">Photo required</div>
           </div>
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10 text-center">
-            <div className="text-2xl font-bold text-accent-primary mb-1">1:1, 4:5, 16:9</div>
-            <div className="text-sm text-text-secondary">Aspect ratios</div>
+            <div className="text-2xl font-bold text-accent-primary mb-1">5</div>
+            <div className="text-sm text-text-secondary">Scenes output</div>
+          </div>
+          <div className="p-4 rounded-xl bg-bg-secondary border border-white/10 text-center">
+            <div className="text-2xl font-bold text-accent-primary mb-1">13</div>
+            <div className="text-sm text-text-secondary">Styles available</div>
           </div>
         </div>
+      </section>
+
+      {/* Styles */}
+      <section id="styles" className="mb-12">
+        <h2 className="text-xl font-semibold text-text-primary mb-4">13 Marketing Styles</h2>
+        
+        <div className="grid md:grid-cols-2 gap-4">
+          <div>
+            <h4 className="text-sm font-medium text-text-tertiary uppercase tracking-wider mb-3">Studio</h4>
+            <div className="space-y-2">
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Studio Ice</span>
+                <span className="text-xs text-text-tertiary ml-2">Clean with ice/glass elements</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Studio Minimal</span>
+                <span className="text-xs text-text-tertiary ml-2">Pure minimal background</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Studio Dramatic</span>
+                <span className="text-xs text-text-tertiary ml-2">Bold, high-contrast, striking</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Studio Neon</span>
+                <span className="text-xs text-text-tertiary ml-2">Modern, vibrant, energetic</span>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="text-sm font-medium text-text-tertiary uppercase tracking-wider mb-3">Lifestyle</h4>
+            <div className="space-y-2">
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Lifestyle Luxury</span>
+                <span className="text-xs text-text-tertiary ml-2">Premium lifestyle context</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Lifestyle Action</span>
+                <span className="text-xs text-text-tertiary ml-2">Dynamic action shot</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Lifestyle Outdoor</span>
+                <span className="text-xs text-text-tertiary ml-2">Natural, fresh, authentic</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Lifestyle Cozy</span>
+                <span className="text-xs text-text-tertiary ml-2">Warm, intimate, comfortable</span>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="text-sm font-medium text-text-tertiary uppercase tracking-wider mb-3">Seasonal</h4>
+            <div className="space-y-2">
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Seasonal Winter</span>
+                <span className="text-xs text-text-tertiary ml-2">Winter themed</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Seasonal Spring</span>
+                <span className="text-xs text-text-tertiary ml-2">Fresh, light, blooming</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Seasonal Summer</span>
+                <span className="text-xs text-text-tertiary ml-2">Bright, vibrant, sunny</span>
+              </div>
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Seasonal Autumn</span>
+                <span className="text-xs text-text-tertiary ml-2">Warm, cozy, rustic</span>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h4 className="text-sm font-medium text-text-tertiary uppercase tracking-wider mb-3">Creative</h4>
+            <div className="space-y-2">
+              <div className="p-3 rounded-lg bg-bg-secondary border border-white/10">
+                <span className="text-sm text-text-primary">Painting</span>
+                <span className="text-xs text-text-tertiary ml-2">Artistic, creative, expressive</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <p className="text-sm text-text-tertiary mt-4">
+          Each style has 7 background variations for maximum diversity in your marketing materials.
+        </p>
       </section>
 
       {/* How it works */}
@@ -88,111 +170,77 @@ export default function AdshotPage() {
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-full bg-accent-primary/20 text-accent-primary flex items-center justify-center font-bold flex-shrink-0">1</div>
             <div>
-              <h4 className="font-medium text-text-primary mb-1">Describe your ad</h4>
+              <h4 className="font-medium text-text-primary mb-1">Upload your product photo</h4>
               <p className="text-sm text-text-secondary">
-                Describe what you want to see: product, message, style, colors. 
-                Example: &quot;Minimalist tech product ad, clean white background, 
-                subtle shadows, premium feel&quot;
+                Upload 1 or more photos of your product. A clear, well-lit photo gives the best results.
               </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-full bg-accent-primary/20 text-accent-primary flex items-center justify-center font-bold flex-shrink-0">2</div>
             <div>
-              <h4 className="font-medium text-text-primary mb-1">Choose format</h4>
+              <h4 className="font-medium text-text-primary mb-1">Set your brand vibe</h4>
               <p className="text-sm text-text-secondary">
-                Select the right format: square (1:1) for Instagram, 
-                portrait (4:5) for Stories, landscape (16:9) for LinkedIn.
+                Choose your brand vibe: <strong>Luxury</strong> (premium, elegant), <strong>Playful</strong> (fun, energetic), 
+                <strong> Minimal</strong> (clean, simple), or <strong>Bold</strong> (striking, attention-grabbing).
               </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-full bg-accent-primary/20 text-accent-primary flex items-center justify-center font-bold flex-shrink-0">3</div>
             <div>
-              <h4 className="font-medium text-text-primary mb-1">Generate & download</h4>
+              <h4 className="font-medium text-text-primary mb-1">Get 5 unique scenes</h4>
               <p className="text-sm text-text-secondary">
-                Adshot generates your visual. Download directly or generate variations.
+                Adshot generates 5 marketing scenes with different styles and backgrounds. 
+                Each scene is unique and ready for your ads.
               </p>
             </div>
           </div>
         </div>
-
-        <div className="mt-6 bg-bg-secondary border border-white/10 rounded-xl p-6">
-          <div className="aspect-video rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary">
-            [Screenshot: Adshot interface with prompt and format selection]
-          </div>
-        </div>
       </section>
 
-      {/* Use cases */}
-      <section id="use-cases" className="mb-12">
-        <h2 className="text-xl font-semibold text-text-primary mb-4">Use cases</h2>
-        
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">Social Media Managers</h4>
-            <p className="text-sm text-text-secondary">
-              Generate daily content for multiple platforms. No waiting for designers, 
-              no searching for stock photos.
-            </p>
-          </div>
-          <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">Small Businesses</h4>
-            <p className="text-sm text-text-secondary">
-              Professional ads without marketing budget. Create your own visuals for 
-              promotions and campaigns.
-            </p>
-          </div>
-          <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">Agencies</h4>
-            <p className="text-sm text-text-secondary">
-              Fast concepting and mockups for clients. Generate variations in 
-              minutes instead of hours.
-            </p>
-          </div>
-          <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">E-commerce</h4>
-            <p className="text-sm text-text-secondary">
-              Create promotional banners, sale visuals, and product announcements 
-              for your webshop.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Templates */}
-      <section id="templates">
-        <h2 className="text-xl font-semibold text-text-primary mb-4">Prompt templates</h2>
+      {/* Tips */}
+      <section id="tips">
+        <h2 className="text-xl font-semibold text-text-primary mb-4">Tips for best results</h2>
         
         <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">Product launch</h4>
-            <p className="text-sm text-text-tertiary font-mono">
-              &quot;Modern product launch ad, [product] floating in center, 
-              gradient background [color1] to [color2], dynamic lighting, 
-              premium feel, no text&quot;
+          <div className="p-4 rounded-xl bg-orange-500/10 border border-orange-500/20">
+            <h4 className="font-medium text-orange-300 mb-2">Clear product photo</h4>
+            <p className="text-sm text-text-secondary">
+              Use a clear, well-lit photo where your product is clearly visible. 
+              The AI needs to understand your product to place it in new contexts.
             </p>
           </div>
+          
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">Sale / Promotion</h4>
-            <p className="text-sm text-text-tertiary font-mono">
-              &quot;Exciting sale banner, bold colors, energetic mood, 
-              [product category] theme, festive confetti, space for text overlay&quot;
+            <h4 className="font-medium text-text-primary mb-2">Match vibe to brand</h4>
+            <p className="text-sm text-text-secondary">
+              Choose a vibe that matches your brand identity. A luxury watch brand should use &quot;Luxury&quot;, 
+              while a kids toy brand fits better with &quot;Playful&quot;.
             </p>
           </div>
+          
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">Lifestyle</h4>
-            <p className="text-sm text-text-tertiary font-mono">
-              &quot;Lifestyle scene with [product], natural setting, warm golden 
-              hour lighting, aspirational mood, instagram aesthetic&quot;
+            <h4 className="font-medium text-text-primary mb-2">Try different styles</h4>
+            <p className="text-sm text-text-secondary">
+              Each of the 13 styles creates a completely different mood. 
+              Experiment to find what works best for your campaign.
+            </p>
+          </div>
+          
+          <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
+            <h4 className="font-medium text-text-primary mb-2">Seasonal campaigns</h4>
+            <p className="text-sm text-text-secondary">
+              Use seasonal styles for holiday campaigns. Winter style for Christmas, 
+              Summer for beach sales, Autumn for back-to-school.
             </p>
           </div>
         </div>
 
         <div className="mt-6 p-4 rounded-xl bg-yellow-500/10 border border-yellow-500/20">
           <p className="text-sm text-yellow-200">
-            <strong>Tip:</strong> Always add &quot;no text&quot; or &quot;space for text overlay&quot; to 
-            your prompt so you can add text yourself later.
+            <strong>Pro tip:</strong> Run Adshot multiple times with different vibes to build 
+            a library of marketing assets for A/B testing your ads.
           </p>
         </div>
       </section>

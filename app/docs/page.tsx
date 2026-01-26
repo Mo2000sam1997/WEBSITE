@@ -282,7 +282,7 @@ export default function DocsPage() {
                             5 MIN
                           </span>
                         </div>
-                        <span className="text-sm text-text-secondary">Start free with 750 credits</span>
+                        <span className="text-sm text-text-secondary">Get started with 750 credits</span>
                       </div>
                       <ChevronRight className="w-5 h-5 text-text-tertiary group-hover:text-accent-primary group-hover:translate-x-1 transition-all" />
                     </Link>
@@ -309,8 +309,8 @@ export default function DocsPage() {
                         </div>
                       ))}
                     </div>
-                    <Link href="/docs/credits" className="mt-4 text-sm text-accent-primary hover:underline flex items-center gap-1">
-                      View all credits <ArrowRight className="w-3 h-3" />
+                    <Link href="/signup" className="mt-4 text-sm text-accent-primary hover:underline flex items-center gap-1">
+                      Start for free <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
                 </motion.div>

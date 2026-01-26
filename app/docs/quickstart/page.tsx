@@ -8,7 +8,7 @@ export default function QuickstartPage() {
   return (
     <DocsLayout
       title="Quickstart"
-      description="Get started with Labobox in under 5 minutes. Follow these steps to create your first AI generation."
+      description="Get started with Labobox and try the platform. Follow these steps to create your first AI generation."
       tableOfContents={[
         { title: "Step 1: Create account", href: "#step-1" },
         { title: "Step 2: Choose an app", href: "#step-2" },
@@ -23,7 +23,7 @@ export default function QuickstartPage() {
           Create your account
         </h2>
         <p className="text-text-secondary mb-4">
-          Sign up for a free account to get started. You&apos;ll receive 750 credits immediately to try Labobox.
+          Sign up to get started. You&apos;ll receive 750 credits immediately to try the platform.
         </p>
         
         <div className="bg-bg-secondary border border-white/10 rounded-xl p-6 mb-4">
@@ -70,23 +70,19 @@ export default function QuickstartPage() {
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           <div className="bg-bg-secondary border border-white/10 rounded-xl p-4">
             <h4 className="font-medium text-text-primary mb-2">Chat Models</h4>
-            <p className="text-sm text-text-secondary mb-2">15 AI chat models for writing, coding, analysis.</p>
-            <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400">Free</span>
+            <p className="text-sm text-text-secondary">15 AI chat models for writing, coding, analysis.</p>
           </div>
           <div className="bg-bg-secondary border border-white/10 rounded-xl p-4">
             <h4 className="font-medium text-text-primary mb-2">Image Models</h4>
-            <p className="text-sm text-text-secondary mb-2">9 AI image generators for all styles.</p>
-            <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400">Free</span>
+            <p className="text-sm text-text-secondary">9 AI image generators for all styles.</p>
           </div>
           <div className="bg-bg-secondary border border-white/10 rounded-xl p-4">
             <h4 className="font-medium text-text-primary mb-2">CleanShot</h4>
-            <p className="text-sm text-text-secondary mb-2">Professional product photos for e-commerce.</p>
-            <span className="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-400">Basic+</span>
+            <p className="text-sm text-text-secondary">Professional product photos for e-commerce.</p>
           </div>
           <div className="bg-bg-secondary border border-white/10 rounded-xl p-4">
             <h4 className="font-medium text-text-primary mb-2">3D Studio</h4>
-            <p className="text-sm text-text-secondary mb-2">Text to 3D model generation.</p>
-            <span className="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-400">Basic+</span>
+            <p className="text-sm text-text-secondary">Text to 3D model generation.</p>
           </div>
         </div>
       </section>

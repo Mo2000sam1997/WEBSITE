@@ -47,7 +47,6 @@ export default function ImageModelsPage() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-xl font-semibold text-text-primary">Standard App</h2>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-green-500/20 text-green-400">Free tier</span>
             </div>
             <p className="text-text-secondary flex items-center gap-1">
               <CreditIcon size={14} /> 5-75 per image

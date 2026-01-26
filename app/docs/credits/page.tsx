@@ -188,15 +188,9 @@ export default function CreditsPage() {
         
         <div className="space-y-4">
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <div className="flex items-center justify-between mb-2">
-              <h4 className="font-medium text-text-primary flex items-center gap-2">
-                Free tier
-                <span className="flex items-center gap-1.5 text-text-primary text-sm">
-                  <CreditIcon size={18} /> 750
-                </span>
-              </h4>
-              <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400">Free</span>
-            </div>
+            <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
+              <CreditIcon size={20} /> 750 credits
+            </h4>
             <ul className="space-y-1 text-sm text-text-secondary">
               <li className="flex items-center gap-2">• ~750 budget chat messages (Llama, GPT-5 Nano)</li>
               <li className="flex items-center gap-2">• OR ~93 GPT-5 Chat messages</li>
@@ -205,15 +199,9 @@ export default function CreditsPage() {
           </div>
 
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <div className="flex items-center justify-between mb-2">
-              <h4 className="font-medium text-text-primary flex items-center gap-2">
-                Basic
-                <span className="flex items-center gap-1.5 text-text-primary text-sm">
-                  <CreditIcon size={18} /> 5,000
-                </span>
-              </h4>
-              <span className="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-400">Basic</span>
-            </div>
+            <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
+              <CreditIcon size={20} /> 5,000 credits
+            </h4>
             <ul className="space-y-1 text-sm text-text-secondary">
               <li>• ~5,000 budget chat messages</li>
               <li>• OR ~625 GPT-5 Chat messages</li>
@@ -222,29 +210,17 @@ export default function CreditsPage() {
           </div>
 
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <div className="flex items-center justify-between mb-2">
-              <h4 className="font-medium text-text-primary flex items-center gap-2">
-                Pro
-                <span className="flex items-center gap-1.5 text-text-primary text-sm">
-                  <CreditIcon size={18} /> 25,000
-                </span>
-              </h4>
-              <span className="text-xs px-2 py-1 rounded-full bg-purple-500/20 text-purple-400">Pro</span>
-            </div>
-            <p className="text-sm text-text-secondary">5x more than Basic - perfect for power users</p>
+            <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
+              <CreditIcon size={20} /> 25,000 credits
+            </h4>
+            <p className="text-sm text-text-secondary">Perfect for power users and professionals</p>
           </div>
 
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <div className="flex items-center justify-between mb-2">
-              <h4 className="font-medium text-text-primary flex items-center gap-2">
-                Team
-                <span className="flex items-center gap-1.5 text-text-primary text-sm">
-                  <CreditIcon size={18} /> 100,000
-                </span>
-              </h4>
-              <span className="text-xs px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-400">Team</span>
-            </div>
-            <p className="text-sm text-text-secondary">4x more than Pro - for agencies and teams</p>
+            <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
+              <CreditIcon size={20} /> 100,000 credits
+            </h4>
+            <p className="text-sm text-text-secondary">For agencies and teams with high volume</p>
           </div>
         </div>
 
