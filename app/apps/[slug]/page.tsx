@@ -344,18 +344,17 @@ export default function AppDetailPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
-                  className="mt-10"
+                  className="mt-12 -mx-4 sm:mx-0"
                 >
-                  <p className="text-xs text-white/40 mb-4 uppercase tracking-wider">Powered by</p>
-                  <div className="overflow-hidden h-16 relative">
+                  <div className="overflow-hidden h-28 relative">
                     <div 
-                      className="flex gap-6 items-center animate-scroll-seamless"
+                      className="flex gap-8 items-center animate-scroll-seamless"
                       style={{ width: 'max-content' }}
                     >
                       {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, index) => (
                         <div
                           key={`${logo.name}-${index}`}
-                          className="flex-shrink-0 w-24 h-16 relative opacity-50 hover:opacity-100 transition-opacity duration-300"
+                          className="flex-shrink-0 w-40 h-28 relative opacity-60 hover:opacity-100 transition-opacity duration-300"
                         >
                           <Image
                             src={logo.src}
