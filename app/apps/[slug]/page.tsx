@@ -457,12 +457,12 @@ export default function AppDetailPage() {
         </motion.div>
       </section>
 
-      {/* Content Apps: Example Results Carousel */}
-      {category === "Content" && images.length > 0 && (
+      {/* Content Apps: Example Results Grid */}
+      {category === "Content" && app.exampleResults && app.exampleResults.length > 0 && (
         <section className="py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
-              className="text-center mb-12"
+              className="text-center mb-16"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -475,40 +475,40 @@ export default function AppDetailPage() {
               </p>
             </motion.div>
 
-            {/* Auto-scrolling carousel - infinite loop */}
-            <div className="relative overflow-hidden">
-              {/* Subtle gradient fade edges */}
-              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-bg-primary to-transparent z-10 pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-bg-primary to-transparent z-10 pointer-events-none" />
-
-              <div className="flex animate-scroll-infinite gap-6">
-                {/* Repeat images 4x for seamless infinite scroll */}
-                {[...images, ...images, ...images, ...images].map((image, index) => (
-                  <div
-                    key={index}
-                    className="relative flex-shrink-0 w-72 aspect-[4/5] rounded-2xl overflow-hidden group hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300"
+            {/* Grid Layout */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {app.exampleResults.map((image, index) => (
+                <motion.div
+                  key={index}
+                  className="relative group cursor-pointer"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {/* Glow effect on hover */}
+                  <div 
+                    className="absolute -inset-2 rounded-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-xl"
+                    style={{ backgroundColor: categoryConfig.color }}
+                  />
+                  
+                  <div 
+                    className="relative overflow-hidden rounded-2xl border border-white/10 group-hover:border-white/20 transition-all duration-500"
+                    style={{ aspectRatio: '600/500' }}
                   >
                     <Image
                       src={image}
-                      alt={`${app.name} example ${(index % images.length) + 1}`}
+                      alt={`${app.name} example ${index + 1}`}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="288px"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     
-                    {/* Badge */}
-                    <div 
-                      className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm"
-                      style={{ 
-                        backgroundColor: `${categoryConfig.color}30`,
-                        color: categoryConfig.color
-                      }}
-                    >
-                      Example {(index % images.length) + 1}
-                    </div>
+                    {/* Overlay gradient on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-                ))}
-              </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -570,230 +570,6 @@ export default function AppDetailPage() {
         </div>
       </section>
 
-      {/* How It Works Section - Step by Step Showcase */}
-      {images.length > 0 && (
-        <section className="py-24 bg-bg-secondary/30 relative overflow-hidden">
-          {/* Background decoration */}
-          <div 
-            className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10"
-            style={{ backgroundColor: categoryConfig.color }}
-          />
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <motion.div
-              className="text-center mb-20"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <span 
-                className="inline-block px-4 py-1 rounded-full text-sm font-medium mb-4"
-                style={{ 
-                  backgroundColor: `${categoryConfig.color}20`,
-                  color: categoryConfig.color
-                }}
-              >
-                How it works
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Simple. Powerful. <span style={{ color: categoryConfig.color }}>Effective.</span>
-              </h2>
-              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
-                Get started in minutes and see results immediately. Here's how {app.name} transforms your workflow.
-              </p>
-            </motion.div>
-
-            {/* Step-by-step showcase */}
-            <div className="space-y-24">
-              {/* Step 1 - Large featured */}
-              {images[0] && (
-                <motion.div
-                  className="grid lg:grid-cols-2 gap-12 items-center"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="order-2 lg:order-1">
-                    <div 
-                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-xl font-bold mb-6"
-                      style={{ 
-                        backgroundColor: `${categoryConfig.color}20`,
-                        color: categoryConfig.color
-                      }}
-                    >
-                      1
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">
-                      Configure your settings
-                    </h3>
-                    <p className="text-text-secondary text-lg mb-6 leading-relaxed">
-                      Start by customizing {app.name} to fit your exact needs. Our intuitive interface makes setup a breeze - no technical expertise required.
-                    </p>
-                    <ul className="space-y-3">
-                      {["Easy drag-and-drop interface", "Pre-built templates available", "Customize every detail"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-white/80">
-                          <div 
-                            className="w-5 h-5 rounded-full flex items-center justify-center"
-                            style={{ backgroundColor: `${categoryConfig.color}30` }}
-                          >
-                            <Check size={12} style={{ color: categoryConfig.color }} />
-                          </div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="order-1 lg:order-2">
-                    <motion.div
-                      className="relative rounded-2xl overflow-hidden shadow-2xl"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div 
-                        className="absolute -inset-1 rounded-2xl blur-xl opacity-30"
-                        style={{ backgroundColor: categoryConfig.color }}
-                      />
-                      <div className="relative aspect-video">
-                        <Image
-                          src={images[0]}
-                          alt="Step 1"
-                          fill
-                          className="object-cover rounded-2xl"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Step 2 - Reversed */}
-              {images[1] && (
-                <motion.div
-                  className="grid lg:grid-cols-2 gap-12 items-center"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div>
-                    <motion.div
-                      className="relative rounded-2xl overflow-hidden shadow-2xl"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div 
-                        className="absolute -inset-1 rounded-2xl blur-xl opacity-30"
-                        style={{ backgroundColor: categoryConfig.color }}
-                      />
-                      <div className="relative aspect-video">
-                        <Image
-                          src={images[1]}
-                          alt="Step 2"
-                          fill
-                          className="object-cover rounded-2xl"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      </div>
-                    </motion.div>
-                  </div>
-                  <div>
-                    <div 
-                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-xl font-bold mb-6"
-                      style={{ 
-                        backgroundColor: `${categoryConfig.color}20`,
-                        color: categoryConfig.color
-                      }}
-                    >
-                      2
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">
-                      Let AI do the work
-                    </h3>
-                    <p className="text-text-secondary text-lg mb-6 leading-relaxed">
-                      Once configured, {app.name} takes over. Our advanced AI processes your request and generates high-quality results in seconds.
-                    </p>
-                    <ul className="space-y-3">
-                      {["Powered by cutting-edge AI", "Results in seconds", "Consistent quality every time"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-white/80">
-                          <div 
-                            className="w-5 h-5 rounded-full flex items-center justify-center"
-                            style={{ backgroundColor: `${categoryConfig.color}30` }}
-                          >
-                            <Check size={12} style={{ color: categoryConfig.color }} />
-                          </div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Step 3 */}
-              {images[2] && (
-                <motion.div
-                  className="grid lg:grid-cols-2 gap-12 items-center"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="order-2 lg:order-1">
-                    <div 
-                      className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-xl font-bold mb-6"
-                      style={{ 
-                        backgroundColor: `${categoryConfig.color}20`,
-                        color: categoryConfig.color
-                      }}
-                    >
-                      3
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">
-                      Export & integrate
-                    </h3>
-                    <p className="text-text-secondary text-lg mb-6 leading-relaxed">
-                      Download your results in multiple formats or integrate directly with your existing tools. Seamless workflow, maximum productivity.
-                    </p>
-                    <ul className="space-y-3">
-                      {["Multiple export formats", "Direct integrations", "API access available"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-3 text-white/80">
-                          <div 
-                            className="w-5 h-5 rounded-full flex items-center justify-center"
-                            style={{ backgroundColor: `${categoryConfig.color}30` }}
-                          >
-                            <Check size={12} style={{ color: categoryConfig.color }} />
-                          </div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="order-1 lg:order-2">
-                    <motion.div
-                      className="relative rounded-2xl overflow-hidden shadow-2xl"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div 
-                        className="absolute -inset-1 rounded-2xl blur-xl opacity-30"
-                        style={{ backgroundColor: categoryConfig.color }}
-                      />
-                      <div className="relative aspect-video">
-                        <Image
-                          src={images[2]}
-                          alt="Step 3"
-                          fill
-                          className="object-cover rounded-2xl"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">

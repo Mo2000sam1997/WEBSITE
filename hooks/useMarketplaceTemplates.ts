@@ -31,6 +31,7 @@ export interface MarketplaceTemplate {
     image: string;
     order: number;
   }>;
+  exampleResults?: string[]; // Array van Firebase Storage URLs voor voorbeeld resultaten
   category?: string;
   isActive: boolean;
   features?: Array<{
