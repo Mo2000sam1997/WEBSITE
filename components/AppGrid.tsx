@@ -11,7 +11,7 @@ const CATEGORIES = [
   { name: 'Data', image: '/images/blueblock.png', color: '#74d1e9', glow: 'rgba(116, 209, 233, 0.25)' },
   { name: 'Agent', image: '/images/greenblock.png', color: '#60ceb4', glow: 'rgba(96, 206, 180, 0.25)' },
   { name: 'Content', image: '/images/pinkblock.png', color: '#efaad3', glow: 'rgba(239, 170, 211, 0.25)' },
-  { name: 'Model', image: '/images/purpleblock.png', color: '#a279fe', glow: 'rgba(162, 121, 254, 0.25)' },
+  { name: 'Models', image: '/images/purpleblock.png', color: '#a279fe', glow: 'rgba(162, 121, 254, 0.25)' },
 ];
 
 const INDUSTRIES = [

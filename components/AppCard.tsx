@@ -58,6 +58,16 @@ const getCategoryConfig = (tag: string) => {
       textColor: lightenColor(color, 40)
     };
   }
+  if (tag === "Model" || tag === "Models") {
+    const color = '#a279fe';
+    return { 
+      image: "/images/purpleblock.png", 
+      color,
+      darkerColor: darkenColor(color, 50),
+      borderColor: lightenColor(color, 5),
+      textColor: lightenColor(color, 40)
+    };
+  }
   // Default
   const color = '#74d1e9';
   return { 

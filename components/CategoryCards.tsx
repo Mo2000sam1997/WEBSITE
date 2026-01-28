@@ -28,12 +28,11 @@ const CATEGORIES = [
     href: '/apps?category=Content'
   },
   { 
-    name: 'Custom', 
-    image: '/images/grayblock-new.png',
-    color: '#9ca3af',
-    glow: 'rgba(156, 163, 175, 0.4)',
-    description: 'Custom AI solutions tailored to your needs',
-    href: '/apps?category=Custom'
+    name: 'Models', 
+    image: '/images/purpleblock.png',
+    color: '#a279fe',
+    description: 'Access powerful AI models directly',
+    href: '/apps?category=Models'
   },
 ];
 

@@ -9,7 +9,7 @@ interface FilterBarProps {
   onFilterChange: (filteredApps: App[]) => void;
 }
 
-const categories = ["All", "Image Gen", "Chat", "3D", "Business"];
+const categories = ["All", "Image Gen", "Chat", "3D", "Business", "Models"];
 const sortOptions = ["Popular", "Newest", "Name A-Z"];
 
 export default function FilterBar({ apps, onFilterChange }: FilterBarProps) {

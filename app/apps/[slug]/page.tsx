@@ -58,6 +58,11 @@ const CATEGORY_CONFIG: Record<string, { image: string; color: string; gradient: 
     color: "#a279fe",
     gradient: "from-purple-500/20 via-violet-500/10 to-transparent"
   },
+  Models: { 
+    image: "/images/purpleblock.png", 
+    color: "#a279fe",
+    gradient: "from-purple-500/20 via-violet-500/10 to-transparent"
+  },
 };
 
 // Default features if none provided
