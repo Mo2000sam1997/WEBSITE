@@ -21,6 +21,19 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingBlocks from "@/components/FloatingBlocks";
+
+// Logo carousel data
+const LOGOS = [
+  { name: 'ChatGPT', src: '/logos/chatgpt.png' },
+  { name: 'Gemini', src: '/logos/gemini.png' },
+  { name: 'Claude', src: '/logos/claude.png' },
+  { name: 'Perplexity', src: '/logos/perplexity.png' },
+  { name: 'Nano Banana', src: '/logos/nanobanana.png' },
+  { name: 'Mistral AI', src: '/logos/mistral.png' },
+  { name: 'Grok', src: '/logos/grok.png' },
+  { name: 'Flux', src: '/logos/flux.png' },
+  { name: 'DeepSeek', src: '/logos/deepseek.png' },
+];
 import { useAppById, type MarketplaceTemplate } from "@/hooks/useMarketplaceTemplates";
 
 // Category config
@@ -324,6 +337,39 @@ export default function AppDetailPage() {
                   View Documentation
                 </motion.button>
               </motion.div>
+
+              {/* Logo Carousel - for Model apps (Chat Models, Image Models) */}
+              {(app.name?.toLowerCase().includes('chat') || app.name?.toLowerCase().includes('image') || category === 'Model') && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="mt-10"
+                >
+                  <p className="text-xs text-white/40 mb-4 uppercase tracking-wider">Powered by</p>
+                  <div className="overflow-hidden h-16 relative">
+                    <div 
+                      className="flex gap-6 items-center animate-scroll-seamless"
+                      style={{ width: 'max-content' }}
+                    >
+                      {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, index) => (
+                        <div
+                          key={`${logo.name}-${index}`}
+                          className="flex-shrink-0 w-24 h-16 relative opacity-50 hover:opacity-100 transition-opacity duration-300"
+                        >
+                          <Image
+                            src={logo.src}
+                            alt={logo.name}
+                            fill
+                            className="object-contain"
+                            unoptimized
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
 
             {/* Right: Video Container (placeholder for now) */}

@@ -21,9 +21,9 @@ const LOGOS = [
 const TYPING_VARIANTS = [
   "to Simulate the World",
   "to Transform Business",
-  "to Create Magic",
-  "to Solve Problems",
-  "to Build Future",
+  "to Create Creativity",
+  "to Build Solutions",
+  "to Shape the Future",
 ];
 
 export default function Hero() {
@@ -589,34 +589,26 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Logo Carousel onder de buttons - lager en groter */}
+        {/* Logo Carousel onder de buttons - seamless infinite loop */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
           className="relative mt-16"
         >
-          <div className="overflow-hidden h-24 relative">
-            {/* Gradient fade links */}
-            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-bg-primary to-transparent pointer-events-none z-10" />
-            {/* Gradient fade rechts */}
-            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-bg-primary to-transparent pointer-events-none z-10" />
-            
-            <motion.div
-              className="flex gap-6 items-center"
-              animate={{
-                x: [0, -1440],
-              }}
-              transition={{
-                duration: 35,
-                repeat: Infinity,
-                ease: "linear",
+          <div className="overflow-hidden h-32 relative">
+            {/* CSS animation for truly seamless loop */}
+            <div 
+              className="flex gap-8 items-center animate-scroll-seamless"
+              style={{
+                width: 'max-content',
               }}
             >
-              {[...LOGOS, ...LOGOS].map((logo, index) => (
+              {/* Triple the logos for seamless effect */}
+              {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, index) => (
                 <div
                   key={`${logo.name}-${index}`}
-                  className="flex-shrink-0 w-52 h-24 relative opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  className="flex-shrink-0 w-48 h-32 relative opacity-60 hover:opacity-100 transition-opacity duration-300"
                 >
                   <div className="relative w-full h-full flex items-center justify-center group hover:scale-110 transition-transform duration-300">
                     <div className="relative w-full h-full">
@@ -631,7 +623,7 @@ export default function Hero() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </motion.div>
 
