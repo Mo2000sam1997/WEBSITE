@@ -83,10 +83,6 @@
   animation: scroll-seamless 25s linear infinite;
 }
 
-.animate-scroll-seamless:hover {
-  animation-play-state: paused;
-}
-
 /* Dark scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
