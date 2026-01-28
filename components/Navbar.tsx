@@ -56,13 +56,19 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Login Button - Rechts */}
-          <div className="hidden md:flex items-center">
+          {/* Auth Buttons - Rechts */}
+          <div className="hidden md:flex items-center gap-3">
             <Link 
               href="/login" 
-              className="text-sm px-5 py-2 rounded-lg bg-white text-black font-medium hover:bg-white/90 transition-all duration-300"
+              className="text-sm px-5 py-2 rounded-lg text-text-secondary hover:text-text-primary transition-all duration-300"
             >
               Login
+            </Link>
+            <Link 
+              href="/signup" 
+              className="text-sm px-5 py-2 rounded-lg bg-white text-black font-medium hover:bg-white/90 transition-all duration-300"
+            >
+              Sign up
             </Link>
           </div>
 
@@ -101,10 +107,17 @@ export default function Navbar() {
               </Link>
               <Link 
                 href="/login" 
-                className="block text-sm text-black py-2 px-4 rounded-lg bg-white text-center hover:bg-white/90 transition-all duration-300"
+                className="block text-sm text-text-secondary py-2 text-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Login
+              </Link>
+              <Link 
+                href="/signup" 
+                className="block text-sm text-black py-2 px-4 rounded-lg bg-white text-center hover:bg-white/90 transition-all duration-300"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Sign up
               </Link>
             </motion.div>
           )}
