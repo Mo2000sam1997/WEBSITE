@@ -54,9 +54,6 @@ export default function Navbar() {
             <Link href="/docs" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
               Docs
             </Link>
-            <Link href="/blog" className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-              Blog
-            </Link>
           </div>
 
           {/* Login Button - Rechts */}
@@ -101,9 +98,6 @@ export default function Navbar() {
               </Link>
               <Link href="/docs" className="block text-sm text-text-secondary py-2" onClick={() => setMobileMenuOpen(false)}>
                 Docs
-              </Link>
-              <Link href="/blog" className="block text-sm text-text-secondary py-2" onClick={() => setMobileMenuOpen(false)}>
-                Blog
               </Link>
               <Link 
                 href="/login" 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, FileText, HelpCircle } from "lucide-react";
+import { Home, HelpCircle } from "lucide-react";
 import DocsNavbar from "@/components/DocsNavbar";
 import DocsFooter from "@/components/DocsFooter";
 
@@ -67,10 +67,6 @@ export default function DocsLayout({ children, title, description, tableOfConten
               <Link href="/contact" className="flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary py-1.5 transition-colors">
                 <HelpCircle className="w-4 h-4" />
                 Support
-              </Link>
-              <Link href="/blog" className="flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary py-1.5 transition-colors">
-                <FileText className="w-4 h-4" />
-                Blog
               </Link>
             </div>
 

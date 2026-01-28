@@ -15,7 +15,6 @@ import {
   Rocket,
   ArrowRight,
   Home,
-  FileText,
   HelpCircle,
   Camera,
   Megaphone
@@ -181,10 +180,6 @@ export default function DocsPage() {
               <Link href="/contact" className="flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary py-1.5 transition-colors">
                 <HelpCircle className="w-4 h-4" />
                 Support
-              </Link>
-              <Link href="/blog" className="flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary py-1.5 transition-colors">
-                <FileText className="w-4 h-4" />
-                Blog
               </Link>
             </div>
 
