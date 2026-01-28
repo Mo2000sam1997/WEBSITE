@@ -338,37 +338,6 @@ export default function AppDetailPage() {
                 </motion.button>
               </motion.div>
 
-              {/* Logo Carousel - for Model apps (Chat Models, Image Models) */}
-              {(app.name?.toLowerCase().includes('chat') || app.name?.toLowerCase().includes('image') || category === 'Model') && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="mt-12 -mx-4 sm:mx-0"
-                >
-                  <div className="overflow-hidden h-28 relative">
-                    <div 
-                      className="flex gap-8 items-center animate-scroll-seamless"
-                      style={{ width: 'max-content' }}
-                    >
-                      {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, index) => (
-                        <div
-                          key={`${logo.name}-${index}`}
-                          className="flex-shrink-0 w-40 h-28 relative opacity-60 hover:opacity-100 transition-opacity duration-300"
-                        >
-                          <Image
-                            src={logo.src}
-                            alt={logo.name}
-                            fill
-                            className="object-contain"
-                            unoptimized
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              )}
             </motion.div>
 
             {/* Right: Video Container (placeholder for now) */}
@@ -438,6 +407,38 @@ export default function AppDetailPage() {
               </div>
             </motion.div>
           </div>
+
+          {/* Logo Carousel - for Model apps (Chat Models, Image Models) - Full Width */}
+          {(app.name?.toLowerCase().includes('chat') || app.name?.toLowerCase().includes('image') || category === 'Model') && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="mt-8"
+            >
+              <div className="overflow-hidden h-32 relative">
+                <div 
+                  className="flex gap-10 items-center animate-scroll-seamless"
+                  style={{ width: 'max-content' }}
+                >
+                  {[...LOGOS, ...LOGOS, ...LOGOS].map((logo, index) => (
+                    <div
+                      key={`${logo.name}-${index}`}
+                      className="flex-shrink-0 w-48 h-32 relative opacity-60 hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        fill
+                        className="object-contain"
+                        unoptimized
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
 
         {/* Scroll Indicator */}
