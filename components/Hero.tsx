@@ -518,7 +518,7 @@ export default function Hero() {
 
         {/* Main Headline with Typewriter - All on one line */}
         <motion.h1
-          className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold text-text-primary mb-8 leading-tight tracking-tight whitespace-nowrap"
+          className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-6 leading-tight tracking-tight whitespace-nowrap"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -539,7 +539,7 @@ export default function Hero() {
             </span>
             <span className="inline-block w-[8px] sm:w-[12px] lg:w-[16px]" />
             <motion.span
-              className="inline-block min-w-[180px] sm:min-w-[280px] lg:min-w-[420px] xl:min-w-[500px] text-left"
+              className="inline-block min-w-[150px] sm:min-w-[220px] lg:min-w-[320px] xl:min-w-[380px] text-left"
               style={{ color: currentColor }}
               animate={{ 
                 textShadow: [
@@ -567,7 +567,7 @@ export default function Hero() {
 
         {/* Powerful Subheadline */}
         <motion.p
-          className="text-xl sm:text-2xl text-text-secondary mb-4 max-w-3xl mx-auto font-light"
+          className="text-base sm:text-lg text-text-secondary mb-3 max-w-2xl mx-auto font-light"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -600,7 +600,7 @@ export default function Hero() {
           </motion.span>
         </motion.p>
         <motion.p
-          className="text-lg text-text-tertiary mb-10 max-w-xl mx-auto"
+          className="text-sm sm:text-base text-text-tertiary mb-8 max-w-lg mx-auto"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
