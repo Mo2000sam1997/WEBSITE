@@ -1,8 +1,8 @@
-# Customer Support Process - Labobox
+# Customer Support Process - Mindhello
 
 ## Overview
 
-Dit document beschrijft het volledige customer support proces voor Labobox.
+Dit document beschrijft het volledige customer support proces voor Mindhello.
 
 ---
 
@@ -49,19 +49,19 @@ Dit document beschrijft het volledige customer support proces voor Labobox.
 - Verzonden **5 minuten** na form submit
 
 ### Afzender:
-- `noreply@labobox.ai`
+- `noreply@mindhello.ai`
 
 ### Onderwerp:
-- "We've received your message - Labobox Support"
+- "We've received your message - Mindhello Support"
 
 ### Template:
 
 ```
-Subject: We've received your message - Labobox Support
+Subject: We've received your message - Mindhello Support
 
 Hi [Name],
 
-Thank you for reaching out to Labobox!
+Thank you for reaching out to Mindhello!
 
 We've received your message and our team is reviewing it. Due to high 
 volume, please expect a response within 24-48 hours during business days.
@@ -75,7 +75,7 @@ If your issue is urgent, please reply to this email with "URGENT" in
 the subject line.
 
 Best regards,
-The Labobox Team
+The Mindhello Team
 
 ---
 This is an automated message. Please do not reply directly to this email.
@@ -150,7 +150,7 @@ interface Response {
 1. Wait 5 minutes (Delay node)
 2. Generate ticket ID
 3. Format email template
-4. Send email via SendGrid/Resend (from noreply@labobox.ai)
+4. Send email via SendGrid/Resend (from noreply@mindhello.ai)
 5. Update Firestore: `confirmationSent: true`, `confirmationSentAt: now()`
 
 ### Workflow: "Support - Notification"
@@ -183,13 +183,13 @@ interface Response {
 ## 8. Email Setup Vereisten
 
 ### Domein Configuratie:
-1. **SPF Record**: Allow SendGrid/Resend to send on behalf of labobox.ai
+1. **SPF Record**: Allow SendGrid/Resend to send on behalf of mindhello.ai
 2. **DKIM**: Configure for email authentication
 3. **DMARC**: Set policy for email deliverability
 
 ### Email Adressen:
-- `noreply@labobox.ai` - Automatische mails (geen replies accepteren)
-- `support@labobox.ai` - Team replies naar klanten
+- `noreply@mindhello.ai` - Automatische mails (geen replies accepteren)
+- `support@mindhello.ai` - Team replies naar klanten
 
 ---
 

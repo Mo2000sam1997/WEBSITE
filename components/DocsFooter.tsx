@@ -14,7 +14,7 @@ export default function DocsFooter() {
               href="/" 
               className="flex items-center gap-1 text-sm text-text-secondary hover:text-text-primary transition-colors"
             >
-              Labobox
+              Mindhello
               <ExternalLink className="w-3 h-3" />
             </a>
             <a 
@@ -25,7 +25,7 @@ export default function DocsFooter() {
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
-          <p className="text-xs text-text-tertiary">© 2026 Labobox. All rights reserved.</p>
+          <p className="text-xs text-text-tertiary">© 2026 Mindhello. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -7,11 +7,11 @@ import { Search, Users, ChevronDown, Check, ArrowUpDown } from 'lucide-react';
 import MarketplaceCard from './MarketplaceCard';
 
 const CATEGORIES = [
-  { name: 'All Apps', image: '/images/LaboboxLogoZonderNaam.png', color: '#edf3fc', glow: 'rgba(237, 243, 252, 0.25)' },
-  { name: 'Data', image: '/images/blueblock.png', color: '#74d1e9', glow: 'rgba(116, 209, 233, 0.25)' },
-  { name: 'Agent', image: '/images/greenblock.png', color: '#60ceb4', glow: 'rgba(96, 206, 180, 0.25)' },
-  { name: 'Content', image: '/images/pinkblock.png', color: '#efaad3', glow: 'rgba(239, 170, 211, 0.25)' },
-  { name: 'Models', image: '/images/purpleblock.png', color: '#a279fe', glow: 'rgba(162, 121, 254, 0.25)' },
+  { name: 'All Apps', image: '/images/mindhello-icon.png', color: '#22C55E', glow: 'rgba(34, 197, 94, 0.25)' },
+  { name: 'Video', image: '/images/blueblock.png', color: '#3B82F6', glow: 'rgba(59, 130, 246, 0.25)' },
+  { name: 'Image', image: '/images/pinkblock.png', color: '#EC4899', glow: 'rgba(236, 72, 153, 0.25)' },
+  { name: '3D', image: '/images/purpleblock.png', color: '#8B5CF6', glow: 'rgba(139, 92, 246, 0.25)' },
+  { name: 'Apps', image: '/images/greenblock.png', color: '#22C55E', glow: 'rgba(34, 197, 94, 0.25)' },
 ];
 
 const INDUSTRIES = [
@@ -301,8 +301,8 @@ export default function AppGrid() {
                 width: `${underlineStyle.width}px`,
                 ...(selectedCategory === 'All Apps' 
                   ? {
-                      background: 'linear-gradient(to right, #74d1e9, #60ceb4, #efaad3, #a279fe)',
-                      boxShadow: '0 -4px 10px rgba(116, 209, 233, 0.5), 0 -4px 10px rgba(96, 206, 180, 0.5), 0 -4px 10px rgba(239, 170, 211, 0.5), 0 -4px 10px rgba(162, 121, 254, 0.5)'
+                      background: 'linear-gradient(to right, #3B82F6, #EC4899, #8B5CF6, #22C55E)',
+                      boxShadow: '0 -4px 10px rgba(59, 130, 246, 0.5), 0 -4px 10px rgba(236, 72, 153, 0.5), 0 -4px 10px rgba(139, 92, 246, 0.5), 0 -4px 10px rgba(34, 197, 94, 0.5)'
                     }
                   : {
                       backgroundColor: CATEGORIES.find(c => c.name === selectedCategory)?.color || '#edf3fc',

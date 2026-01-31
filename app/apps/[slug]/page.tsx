@@ -38,30 +38,25 @@ import { useAppById, type MarketplaceTemplate } from "@/hooks/useMarketplaceTemp
 
 // Category config
 const CATEGORY_CONFIG: Record<string, { image: string; color: string; gradient: string }> = {
-  Agent: { 
-    image: "/images/greenblock.png", 
-    color: "#60ceb4",
-    gradient: "from-emerald-500/20 via-teal-500/10 to-transparent"
+  Video: { 
+    image: "/images/blueblock.png", 
+    color: "#3B82F6",
+    gradient: "from-blue-500/20 via-blue-500/10 to-transparent"
   },
-  Content: { 
+  Image: { 
     image: "/images/pinkblock.png", 
-    color: "#efaad3",
+    color: "#EC4899",
     gradient: "from-pink-500/20 via-rose-500/10 to-transparent"
   },
-  Data: { 
-    image: "/images/blueblock.png", 
-    color: "#74d1e9",
-    gradient: "from-cyan-500/20 via-blue-500/10 to-transparent"
-  },
-  Model: { 
+  "3D": { 
     image: "/images/purpleblock.png", 
-    color: "#a279fe",
+    color: "#8B5CF6",
     gradient: "from-purple-500/20 via-violet-500/10 to-transparent"
   },
-  Models: { 
-    image: "/images/purpleblock.png", 
-    color: "#a279fe",
-    gradient: "from-purple-500/20 via-violet-500/10 to-transparent"
+  Apps: { 
+    image: "/images/greenblock.png", 
+    color: "#22C55E",
+    gradient: "from-green-500/20 via-emerald-500/10 to-transparent"
   },
 };
 
@@ -159,8 +154,8 @@ export default function AppDetailPage() {
     );
   }
 
-  const category = app.category || "Data";
-  const categoryConfig = CATEGORY_CONFIG[category] || CATEGORY_CONFIG.Data;
+  const category = app.category || "Apps";
+  const categoryConfig = CATEGORY_CONFIG[category] || CATEGORY_CONFIG.Apps;
   const features = app.features && app.features.length > 0 ? app.features : DEFAULT_FEATURES;
   const images = getAllImages(app);
   
@@ -413,8 +408,8 @@ export default function AppDetailPage() {
             </motion.div>
           </div>
 
-          {/* Logo Carousel - for Model apps (Chat Models, Image Models) - Full Width */}
-          {(app.name?.toLowerCase().includes('chat') || app.name?.toLowerCase().includes('image') || category === 'Model') && (
+          {/* Logo Carousel - for Apps category (Chat Models) - Full Width */}
+          {(app.name?.toLowerCase().includes('chat') || category === 'Apps') && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -462,8 +457,8 @@ export default function AppDetailPage() {
         </motion.div>
       </section>
 
-      {/* Content Apps: Example Results Grid */}
-      {category === "Content" && app.exampleResults && app.exampleResults.length > 0 && (
+      {/* Image Apps: Example Results Grid */}
+      {category === "Image" && app.exampleResults && app.exampleResults.length > 0 && (
         <section className="py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div

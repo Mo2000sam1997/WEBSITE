@@ -44,8 +44,8 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold text-text-primary mb-4">1. Acceptance of Terms</h2>
               <p>
-                Welcome to Labobox. These Terms of Service (&quot;Terms&quot;) govern your access to and use of the Labobox 
-                website and any related services, features, content, or applications offered by Labobox 
+                Welcome to Mindhello.ai. These Terms of Service (&quot;Terms&quot;) govern your access to and use of the Mindhello.ai 
+                website and any related services, features, content, or applications offered by Mindhello.ai 
                 (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) (collectively, the &quot;Services&quot;).
               </p>
               <p className="mt-4">
@@ -97,7 +97,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold text-text-primary mb-4">4. Services and Credit System</h2>
               <p>
-                Labobox provides access to various artificial intelligence tools and services through a 
+                Mindhello.ai provides access to various artificial intelligence tools and services through a 
                 credit-based system. Credits are the virtual currency used to access and utilize our AI 
                 services.
               </p>
@@ -119,7 +119,7 @@ export default function TermsPage() {
               <p>
                 Credits that have been used are non-refundable. For failed generations due to technical 
                 issues on our end, credits will be automatically refunded to your account. For other refund 
-                requests, please contact support@labobox.app.
+                requests, please contact support@mindhello.ai.
               </p>
             </section>
 
@@ -159,7 +159,7 @@ export default function TermsPage() {
               <p>
                 The Services and all content, features, and functionality thereof, including but not limited 
                 to all information, software, code, text, displays, graphics, photographs, video, audio, 
-                design, presentation, selection, and arrangement, are owned by Labobox, its licensors, or 
+                design, presentation, selection, and arrangement, are owned by Mindhello.ai, its licensors, or 
                 other providers and are protected by copyright, trademark, patent, trade secret, and other 
                 intellectual property laws.
               </p>
@@ -221,7 +221,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold text-text-primary mb-4">9. Indemnification</h2>
               <p>
-                You agree to indemnify, defend, and hold harmless Labobox and its officers, directors, 
+                You agree to indemnify, defend, and hold harmless Mindhello.ai and its officers, directors, 
                 employees, agents, affiliates, successors, and assigns from and against any and all claims, 
                 damages, obligations, losses, liabilities, costs, and expenses (including but not limited 
                 to attorney&apos;s fees) arising from: (a) your use of the Services; (b) your violation of these 
@@ -242,7 +242,7 @@ export default function TermsPage() {
                 warranty disclaimers, indemnity, and limitations of liability.
               </p>
               <p className="mt-4">
-                You may terminate your account at any time by contacting us at support@labobox.app or through 
+                You may terminate your account at any time by contacting us at support@mindhello.ai or through 
                 your account settings. Upon termination, any unused credits will be forfeited.
               </p>
             </section>
@@ -284,7 +284,7 @@ export default function TermsPage() {
               <p>
                 <strong>Entire Agreement:</strong> These Terms, together with the Privacy Policy and any 
                 other agreements expressly incorporated by reference, constitute the entire agreement 
-                between you and Labobox concerning the Services.
+                between you and Mindhello.ai concerning the Services.
               </p>
               <p className="mt-4">
                 <strong>Severability:</strong> If any provision of these Terms is held to be invalid or 
@@ -307,7 +307,7 @@ export default function TermsPage() {
                 If you have any questions about these Terms, please contact us at:
               </p>
               <div className="mt-4 p-4 bg-white/5 rounded-lg">
-                <p className="text-accent-primary">support@labobox.app</p>
+                <p className="text-accent-primary">support@mindhello.ai</p>
               </div>
             </section>
 

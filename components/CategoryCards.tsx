@@ -7,32 +7,36 @@ import { ArrowRight } from "lucide-react";
 
 const CATEGORIES = [
   { 
-    name: 'Data', 
+    name: 'Video', 
     image: '/images/blueblock.png', 
-    color: '#74d1e9',
-    description: 'Process and analyze data with AI-powered tools',
-    href: '/apps?category=Data'
+    color: '#3B82F6',
+    description: 'Generate and edit videos with AI',
+    href: '/video',
+    appCount: 5
   },
   { 
-    name: 'Agent', 
-    image: '/images/greenblock.png', 
-    color: '#60ceb4',
-    description: 'Intelligent agents that automate your workflows',
-    href: '/apps?category=Agent'
-  },
-  { 
-    name: 'Content', 
+    name: 'Image', 
     image: '/images/pinkblock.png', 
-    color: '#efaad3',
-    description: 'Create stunning content with AI assistance',
-    href: '/apps?category=Content'
+    color: '#EC4899',
+    description: 'Create and edit stunning images',
+    href: '/image',
+    appCount: 5
   },
   { 
-    name: 'Models', 
+    name: '3D', 
     image: '/images/purpleblock.png',
-    color: '#a279fe',
-    description: 'Access powerful AI models directly',
-    href: '/apps?category=Models'
+    color: '#8B5CF6',
+    description: 'Transform text and images into 3D models',
+    href: '/3d',
+    appCount: 2
+  },
+  { 
+    name: 'Apps', 
+    image: '/images/greenblock.png', 
+    color: '#22C55E',
+    description: 'Powerful AI tools and chat models',
+    href: '/apps',
+    appCount: 1
   },
 ];
 

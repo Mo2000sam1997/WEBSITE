@@ -39,7 +39,7 @@
 
 ## 4. WEBSITE STRUCTUUR
 
-- [x] Homepage (helder: wat is Labobox?)
+- [x] Homepage (helder: wat is Mindhello?)
 - [x] Apps pagina (duidelijk + visuals)
 - [x] Pricing pagina
 - [x] Blog (minstens 1 post live)

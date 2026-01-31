@@ -13,10 +13,10 @@ import { useSliderApps, type MarketplaceTemplate } from "@/hooks/useMarketplaceT
 
 // Category config voor blokjes
 const CATEGORY_CONFIG = {
-  Agent: { image: "/images/greenblock.png", color: "#60ceb4" },
-  Content: { image: "/images/pinkblock.png", color: "#efaad3" },
-  Data: { image: "/images/blueblock.png", color: "#74d1e9" },
-  Model: { image: "/images/purpleblock.png", color: "#a279fe" },
+  Video: { image: "/images/blueblock.png", color: "#3B82F6" },
+  Image: { image: "/images/pinkblock.png", color: "#EC4899" },
+  "3D": { image: "/images/purpleblock.png", color: "#8B5CF6" },
+  Apps: { image: "/images/greenblock.png", color: "#22C55E" },
 };
 
 export default function AppsPage() {
@@ -86,8 +86,8 @@ export default function AppsPage() {
   }
 
   const currentApp = featuredApps[currentSlide];
-  const category = currentApp.category || "Data";
-  const categoryConfig = CATEGORY_CONFIG[category as keyof typeof CATEGORY_CONFIG] || CATEGORY_CONFIG.Data;
+  const category = currentApp.category || "Apps";
+  const categoryConfig = CATEGORY_CONFIG[category as keyof typeof CATEGORY_CONFIG] || CATEGORY_CONFIG.Apps;
 
 
   return (
@@ -189,8 +189,8 @@ export default function AppsPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
               <div className="flex gap-2">
                 {featuredApps.map((app, index) => {
-                  const appCategory = app.category || "Data";
-                  const config = CATEGORY_CONFIG[appCategory as keyof typeof CATEGORY_CONFIG] || CATEGORY_CONFIG.Data;
+                  const appCategory = app.category || "Apps";
+                  const config = CATEGORY_CONFIG[appCategory as keyof typeof CATEGORY_CONFIG] || CATEGORY_CONFIG.Apps;
                   const isActive = index === currentSlide;
                   return (
                     <motion.button

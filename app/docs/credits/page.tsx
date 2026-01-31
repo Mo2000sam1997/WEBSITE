@@ -31,7 +31,7 @@ export default function CreditsPage() {
   return (
     <DocsLayout
       title="Understanding Credits"
-      description="Credits are Labobox's universal currency. Pay only for what you use."
+      description="Credits are Mindhello.ai's universal currency. Pay only for what you use."
       tableOfContents={[
         { title: "How it works", href: "#how-it-works" },
         { title: "Credit costs", href: "#costs" },
@@ -48,20 +48,20 @@ export default function CreditsPage() {
           <div className="flex items-center gap-4 mb-6">
             <Image
               src="/images/credit-icon.png"
-              alt="Labobox Credits"
+              alt="Mindhello.ai Credits"
               width={72}
               height={72}
               className="w-18 h-18"
             />
             <div>
-              <h3 className="text-2xl font-bold text-text-primary">Labobox Credits</h3>
+              <h3 className="text-2xl font-bold text-text-primary">Mindhello.ai Credits</h3>
               <p className="text-text-secondary">One currency for all AI tools</p>
             </div>
           </div>
 
           <div className="space-y-4">
             <p className="text-text-secondary">
-              Credits are the universal currency within Labobox. Instead of different 
+              Credits are the universal currency within Mindhello.ai. Instead of different 
               prices per app or model, you use credits for everything. Simple and transparent.
             </p>
             <div className="grid md:grid-cols-3 gap-4">

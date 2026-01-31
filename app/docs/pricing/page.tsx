@@ -80,7 +80,7 @@ export default function PricingDocsPage() {
         <h2 className="text-xl font-semibold text-text-primary mb-4">Overview</h2>
         
         <p className="text-text-secondary mb-6">
-          Labobox has four plans: Free, Basic, Pro, and Team. Each plan gives you a 
+          Mindhello.ai has four plans: Free, Basic, Pro, and Team. Each plan gives you a 
           certain number of credits per month. More credits means more generations.
         </p>
 

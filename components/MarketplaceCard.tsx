@@ -6,11 +6,11 @@ import { Users } from "lucide-react";
 import { MarketplaceTemplate } from "@/hooks/useMarketplaceTemplates";
 
 const CATEGORIES = [
-  { name: 'All Apps', image: '/images/LaboboxLogoZonderNaam.png', color: '#edf3fc', glow: 'rgba(237, 243, 252, 0.25)' },
-  { name: 'Data', image: '/images/blueblock.png', color: '#74d1e9', glow: 'rgba(116, 209, 233, 0.25)' },
-  { name: 'Agent', image: '/images/greenblock.png', color: '#60ceb4', glow: 'rgba(96, 206, 180, 0.25)' },
-  { name: 'Content', image: '/images/pinkblock.png', color: '#efaad3', glow: 'rgba(239, 170, 211, 0.25)' },
-  { name: 'Models', image: '/images/purpleblock.png', color: '#a279fe', glow: 'rgba(162, 121, 254, 0.25)' },
+  { name: 'All Apps', image: '/images/mindhello-icon.png', color: '#22C55E', glow: 'rgba(34, 197, 94, 0.25)' },
+  { name: 'Video', image: '/images/blueblock.png', color: '#3B82F6', glow: 'rgba(59, 130, 246, 0.25)' },
+  { name: 'Image', image: '/images/pinkblock.png', color: '#EC4899', glow: 'rgba(236, 72, 153, 0.25)' },
+  { name: '3D', image: '/images/purpleblock.png', color: '#8B5CF6', glow: 'rgba(139, 92, 246, 0.25)' },
+  { name: 'Apps', image: '/images/greenblock.png', color: '#22C55E', glow: 'rgba(34, 197, 94, 0.25)' },
 ];
 
 interface MarketplaceCardProps {
@@ -20,35 +20,35 @@ interface MarketplaceCardProps {
 export default function MarketplaceCard({ template }: MarketplaceCardProps) {
   const getCategoryConfig = (category?: string) => {
     // Map category names to images
-    if (category === 'Agent') {
-      return {
-        image: '/images/greenblock.png',
-        glow: 'rgba(96, 206, 180, 0.25)'
-      };
-    }
-    if (category === 'Content') {
-      return {
-        image: '/images/pinkblock.png',
-        glow: 'rgba(239, 170, 211, 0.25)'
-      };
-    }
-    if (category === 'Data') {
+    if (category === 'Video') {
       return {
         image: '/images/blueblock.png',
-        glow: 'rgba(116, 209, 233, 0.25)'
+        glow: 'rgba(59, 130, 246, 0.25)'
       };
     }
-    if (category === 'Model' || category === 'Models') {
+    if (category === 'Image') {
+      return {
+        image: '/images/pinkblock.png',
+        glow: 'rgba(236, 72, 153, 0.25)'
+      };
+    }
+    if (category === '3D') {
       return {
         image: '/images/purpleblock.png',
-        glow: 'rgba(162, 121, 254, 0.25)'
+        glow: 'rgba(139, 92, 246, 0.25)'
+      };
+    }
+    if (category === 'Apps') {
+      return {
+        image: '/images/greenblock.png',
+        glow: 'rgba(34, 197, 94, 0.25)'
       };
     }
     
-    // Default: Labobox logo voor All Apps
+    // Default: green block voor All Apps
     return {
-      image: '/images/LaboboxLogoZonderNaam.png',
-      glow: 'rgba(237, 243, 252, 0.25)'
+      image: '/images/greenblock.png',
+      glow: 'rgba(34, 197, 94, 0.25)'
     };
   };
 

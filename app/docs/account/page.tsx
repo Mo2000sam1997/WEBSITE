@@ -8,7 +8,7 @@ export default function AccountPage() {
   return (
     <DocsLayout
       title="Create Account"
-      description="Create a free Labobox account and get 750 credits to start immediately."
+      description="Create a free Mindhello.ai account and get 750 credits to start immediately."
       tableOfContents={[
         { title: "Sign up", href: "#sign-up" },
         { title: "What you get", href: "#what-you-get" },

@@ -7,10 +7,10 @@ import { ArrowRight, Sparkles, Zap } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const TYPING_VARIANTS = [
-  { text: "Your Workflow?", color: "#fc85d7" },      // Labobox pink
-  { text: "Your AI Tools?", color: "#4edc96" },      // Labobox green
-  { text: "Your Business?", color: "#77bdf8" },      // Labobox blue
-  { text: "Your Ideas?", color: "#fc85d7" },         // Labobox pink
+  { text: "Your Reality?", color: "#EC4899" },       // Image pink
+  { text: "Your World?", color: "#22C55E" },         // Apps green
+  { text: "Your Vision?", color: "#3B82F6" },        // Video blue
+  { text: "Your Ideas?", color: "#8B5CF6" },         // 3D purple
 ];
 
 export default function CTABanner() {
@@ -67,7 +67,7 @@ export default function CTABanner() {
           <motion.div
             className="absolute -inset-[2px] rounded-[2.5rem] transition-all duration-300 group-hover:-inset-[3px]"
             style={{
-              background: "linear-gradient(90deg, #fc85d7, #4edc96, #77bdf8, #fc85d7)",
+              background: "linear-gradient(90deg, #3B82F6, #EC4899, #8B5CF6, #22C55E)",
               backgroundSize: "300% 100%",
             }}
             animate={{
@@ -84,7 +84,7 @@ export default function CTABanner() {
           <div 
             className="absolute -inset-[6px] rounded-[2.5rem] opacity-0 group-hover:opacity-40 transition-opacity duration-300 blur-lg"
             style={{
-              background: "linear-gradient(90deg, #fc85d7, #4edc96, #77bdf8, #fc85d7)",
+              background: "linear-gradient(90deg, #3B82F6, #EC4899, #8B5CF6, #22C55E)",
               backgroundSize: "300% 100%",
             }}
           />
@@ -154,7 +154,7 @@ export default function CTABanner() {
                   >
                     <Zap size={16} className="text-yellow-400 fill-yellow-400" />
                   </motion.div>
-                  <span className="text-sm font-medium text-white">Start Building Today</span>
+                  <span className="text-sm font-medium text-white">Start Simulating Today</span>
                 </motion.div>
 
                 {/* Headline met typing animatie */}
@@ -165,7 +165,7 @@ export default function CTABanner() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight"
                 >
-                  <span className="block">Ready to Transform</span>
+                  <span className="block">Ready to Simulate</span>
                   <span 
                     className="relative inline-block font-bold whitespace-nowrap"
                     style={{ 
@@ -192,7 +192,7 @@ export default function CTABanner() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-base sm:text-lg text-white/80 leading-relaxed max-w-xl"
                 >
-                  Access powerful AI tools with flexible monthly plans. Choose what fits you and unlock endless possibilities for your projects.
+                  Create videos, images, and 3D models with AI. No experience required — just type what you imagine and watch it come to life.
                 </motion.p>
               </div>
 

@@ -44,7 +44,7 @@ export default function PrivacyPage() {
             <section>
               <h2 className="text-xl font-semibold text-text-primary mb-4">Introduction</h2>
               <p>
-                Labobox (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy 
+                Mindhello.ai (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy 
                 Policy describes how we collect, use, disclose, and safeguard your information when you 
                 visit our website and use our services (collectively, the &quot;Services&quot;).
               </p>
@@ -122,7 +122,7 @@ export default function PrivacyPage() {
                 <li><strong>Legal Requirements:</strong> We may disclose your information if required to 
                     do so by law or in response to valid requests by public authorities.</li>
                 <li><strong>Protection of Rights:</strong> We may disclose your information to protect the 
-                    rights, property, or safety of Labobox, our users, or others.</li>
+                    rights, property, or safety of Mindhello.ai, our users, or others.</li>
               </ul>
               <p className="mt-4 font-medium text-text-primary">
                 We do not sell your personal information to third parties.
@@ -191,7 +191,7 @@ export default function PrivacyPage() {
               <p>
                 You may update, correct, or delete your account information at any time by logging into 
                 your account settings. If you wish to delete your account, please contact us at 
-                support@labobox.app.
+                support@mindhello.ai.
               </p>
 
               <h3 className="text-lg font-medium text-text-primary mt-6 mb-3">7.2 European Users (GDPR)</h3>
@@ -207,7 +207,7 @@ export default function PrivacyPage() {
                 <li><strong>Right to Withdraw Consent:</strong> Where we rely on consent, you have the right to withdraw it.</li>
               </ul>
               <p className="mt-4">
-                To exercise these rights, please contact us at support@labobox.app. You also have the right to 
+                To exercise these rights, please contact us at support@mindhello.ai. You also have the right to 
                 lodge a complaint with your local data protection authority.
               </p>
 
@@ -277,7 +277,7 @@ export default function PrivacyPage() {
                 If you have any questions about this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="mt-4 p-4 bg-white/5 rounded-lg">
-                <p className="text-accent-primary">support@labobox.app</p>
+                <p className="text-accent-primary">support@mindhello.ai</p>
               </div>
             </section>
 

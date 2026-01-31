@@ -225,7 +225,7 @@ export default function DocsPage() {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-4xl md:text-5xl font-bold text-text-primary mb-6"
                   >
-                    Labobox Documentation
+                    Mindhello Documentation
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
@@ -404,7 +404,7 @@ export default function DocsPage() {
               >
                 <h2 className="text-2xl font-bold text-text-primary mb-4">Understanding Credits</h2>
                 <p className="text-text-secondary mb-8">
-                  Credits are the universal currency in Labobox. Budget models cost 1 credit, premium models cost more.
+                  Credits are the universal currency in Mindhello.ai. Budget models cost 1 credit, premium models cost more.
                   You always see the credit cost before any action.
                 </p>
 

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { CreditCard, Layers, Zap, Cpu, Grid3X3, Rocket, Shield } from "lucide-react";
 
-export default function WhyLabobox() {
+export default function WhyMindhello() {
   const benefits = [
     {
       icon: CreditCard,
@@ -46,10 +46,10 @@ export default function WhyLabobox() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
-            Why choose Labobox?
+            Why choose Mindhello?
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            We built Labobox to make AI accessible to everyone. No technical expertise required.
+            We built Mindhello to make AI accessible to everyone. No technical expertise required.
           </p>
         </motion.div>
 

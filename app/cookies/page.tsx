@@ -50,7 +50,7 @@ export default function CookiesPage() {
                 and remember information about your visit, such as your preferences and settings.
               </p>
               <p className="mt-4">
-                This Cookie Policy explains how Labobox (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) uses cookies and similar 
+                This Cookie Policy explains how Mindhello.ai (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) uses cookies and similar 
                 tracking technologies when you visit our website (the &quot;Site&quot;).
               </p>
             </section>
@@ -221,7 +221,7 @@ export default function CookiesPage() {
                 If you have any questions about our use of cookies or this Cookie Policy, please contact us:
               </p>
               <div className="mt-4 p-4 bg-white/5 rounded-lg">
-                <p className="text-accent-primary">support@labobox.app</p>
+                <p className="text-accent-primary">support@mindhello.ai</p>
               </div>
             </section>
 

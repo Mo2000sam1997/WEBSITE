@@ -15,13 +15,19 @@ export default function DocsNavbar() {
           {/* Logo - far left */}
           <Link href="/docs" className="flex items-center gap-3">
             <Image
-              src="/images/LaboboxLogoZonderNaam.png"
-              alt="Labobox"
+              src="/images/mindhello-icon.png"
+              alt="Mindhello"
               width={32}
               height={32}
               className="w-8 h-8"
             />
-            <span className="text-xl font-bold text-text-primary">Labobox</span>
+            <Image
+              src="/images/mindhello-logo-blue.png"
+              alt="Mindhello"
+              width={160}
+              height={40}
+              className="hidden sm:block h-8 w-auto"
+            />
             <span className="text-xs px-2 py-0.5 rounded bg-accent-primary/20 text-accent-primary font-medium">
               Docs
             </span>

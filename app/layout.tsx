@@ -4,8 +4,20 @@ import { QueryProvider } from "@/components/QueryProvider";
 import CookieBanner from "@/components/CookieBanner";
 
 export const metadata: Metadata = {
-  title: "Labobox - All the AI tools you need, in one place",
-  description: "Flexible monthly plans. Browse 10+ AI apps for image generation, chat, 3D models, and more.",
+  title: "Mindhello - Simulate the World with AI",
+  description: "Simulate the world with AI. Create stunning videos, images, and 3D models. The ultimate creative workspace powered by AI.",
+  keywords: ["AI", "simulate", "video generation", "image generation", "3D models", "creative tools", "AI workspace"],
+  openGraph: {
+    title: "Mindhello - Simulate the World",
+    description: "Simulate the world with AI. Create videos, images, and 3D models instantly.",
+    siteName: "Mindhello",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mindhello - Simulate the World",
+    description: "Simulate the world with AI. Create videos, images, and 3D models instantly.",
+  },
 };
 
 export default function RootLayout({

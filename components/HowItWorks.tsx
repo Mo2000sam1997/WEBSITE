@@ -55,7 +55,7 @@ export default function HowItWorks() {
             </span>
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Getting started with Labobox takes less than a minute. Here's how:
+            Getting started with Mindhello takes less than a minute. Here's how:
           </p>
         </motion.div>
 

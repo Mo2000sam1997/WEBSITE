@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Twitter, Linkedin, Instagram, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -8,8 +9,23 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <span className="text-lg font-semibold text-text-primary">Labobox</span>
-            <p className="text-xs text-text-tertiary mt-2">All the AI tools you need, in one place.</p>
+            <div className="flex items-center gap-2 mb-2">
+              <Image
+                src="/images/mindhello-icon.png"
+                alt="Mindhello"
+                width={28}
+                height={28}
+                className="w-7 h-7"
+              />
+              <Image
+                src="/images/mindhello-logo-pink.png"
+                alt="Mindhello"
+                width={140}
+                height={36}
+                className="h-7 w-auto"
+              />
+            </div>
+            <p className="text-xs text-text-tertiary">AI Creative Workspace for Video, Image & 3D.</p>
           </div>
 
           {/* Product */}
@@ -73,7 +89,7 @@ export default function Footer() {
             <h3 className="text-xs font-semibold text-text-primary mb-4 uppercase tracking-wider">Connect</h3>
             <div className="flex gap-3">
               <a 
-                href="https://twitter.com/labobox" 
+                href="https://twitter.com/mindhelloai" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary hover:text-text-primary hover:bg-white/10 transition-all"
@@ -81,7 +97,7 @@ export default function Footer() {
                 <Twitter className="w-4 h-4" />
               </a>
               <a 
-                href="https://linkedin.com/company/labobox" 
+                href="https://linkedin.com/company/mindhelloai" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary hover:text-text-primary hover:bg-white/10 transition-all"
@@ -89,7 +105,7 @@ export default function Footer() {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a 
-                href="https://instagram.com/labobox" 
+                href="https://instagram.com/mindhelloai" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary hover:text-text-primary hover:bg-white/10 transition-all"
@@ -97,7 +113,7 @@ export default function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a 
-                href="mailto:support@labobox.app"
+                href="mailto:support@mindhello.ai"
                 className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-text-tertiary hover:text-text-primary hover:bg-white/10 transition-all"
               >
                 <Mail className="w-4 h-4" />
@@ -107,7 +123,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-text-tertiary">© 2026 Labobox. All rights reserved.</p>
+          <p className="text-xs text-text-tertiary">© 2026 Mindhello. All rights reserved.</p>
           <p className="text-xs text-text-tertiary">Made in Belgium 🇧🇪</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-# Labobox Website
+# Mindhello Website
 
 AI marketplace website built with Next.js, TypeScript, and Tailwind CSS.
 
@@ -117,4 +117,4 @@ npm start
 
 ## 📄 License
 
-© 2026 Labobox. All rights reserved.
+© 2026 Mindhello. All rights reserved.

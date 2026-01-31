@@ -8,7 +8,7 @@ export default function QuickstartPage() {
   return (
     <DocsLayout
       title="Quickstart"
-      description="Get started with Labobox and try the platform. Follow these steps to create your first AI generation."
+      description="Get started with Mindhello.ai and try the platform. Follow these steps to create your first AI generation."
       tableOfContents={[
         { title: "Step 1: Create account", href: "#step-1" },
         { title: "Step 2: Choose an app", href: "#step-2" },

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Sparkles } from "lucide-react";
 
 const LOGOS = [
   { name: 'ChatGPT', src: '/logos/chatgpt.png' },
@@ -20,10 +20,10 @@ const LOGOS = [
 
 const TYPING_VARIANTS = [
   "to Simulate the World",
-  "to Transform Business",
-  "to Create Creativity",
-  "to Build Solutions",
-  "to Shape the Future",
+  "to Create Videos",
+  "to Generate Images",
+  "to Build 3D Models",
+  "to Shape Reality",
 ];
 
 export default function Hero() {
@@ -392,7 +392,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/images/LaboboxLogoZonderNaam.png"
+            src="/images/mindhello-icon.png"
             alt=""
             fill
             className="object-contain"
@@ -451,12 +451,12 @@ export default function Hero() {
               repeat: Infinity,
             }}
           />
-          <span className="text-xs text-text-secondary">A box with ai tools</span>
+          <span className="text-xs text-text-secondary">AI Creative Workspace</span>
         </motion.div>
 
-        {/* Headline met betere animaties */}
+        {/* Headline - Simulate the World */}
         <motion.h1
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary mb-6 leading-tight tracking-tight"
+          className="text-4xl sm:text-5xl lg:text-7xl font-bold text-text-primary mb-6 leading-tight tracking-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -470,76 +470,46 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            className="block"
           >
-            All the{" "}
             <motion.span 
-              className="text-[#4ADE80]"
+              className="bg-gradient-to-r from-[#3B82F6] via-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent"
               animate={{
-                textShadow: [
-                  "0 0 0px rgba(74, 222, 128, 0)",
-                  "0 0 20px rgba(74, 222, 128, 0.5)",
-                  "0 0 0px rgba(74, 222, 128, 0)",
-                ],
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
               transition={{
-                duration: 3,
+                duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
+              style={{ backgroundSize: "200% 200%" }}
             >
-              AI
+              Simulate
             </motion.span>{" "}
-            tools you need
-          </motion.span>
-          <br />
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            <span className="text-white">in</span>{" "}
+            <span className="text-white">the</span>{" "}
             <motion.span 
-              className="text-[#FF6ECB]"
+              className="text-[#22C55E]"
               animate={{
                 textShadow: [
-                  "0 0 0px rgba(255, 110, 203, 0)",
-                  "0 0 20px rgba(255, 110, 203, 0.5)",
-                  "0 0 0px rgba(255, 110, 203, 0)",
+                  "0 0 0px rgba(34, 197, 94, 0)",
+                  "0 0 30px rgba(34, 197, 94, 0.6)",
+                  "0 0 0px rgba(34, 197, 94, 0)",
                 ],
               }}
               transition={{
                 duration: 3,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: 1,
               }}
             >
-              one
-            </motion.span>{" "}
-            <motion.span 
-              className="text-[#00D9FF]"
-              animate={{
-                textShadow: [
-                  "0 0 0px rgba(0, 217, 255, 0)",
-                  "0 0 20px rgba(0, 217, 255, 0.5)",
-                  "0 0 0px rgba(0, 217, 255, 0)",
-                ],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1.5,
-              }}
-            >
-              place
+              World
             </motion.span>
           </motion.span>
         </motion.h1>
 
         {/* Subheadline met type animatie */}
         <motion.p
-          className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto font-medium min-h-[32px]"
+          className="text-lg sm:text-xl text-text-secondary mb-4 max-w-2xl mx-auto min-h-[32px]"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -548,15 +518,27 @@ export default function Hero() {
             type: "spring"
           }}
         >
-          Building{" "}
-          <span className="text-white">AI</span>{" "}
-          {typingText}
-          <span className="animate-pulse">|</span>
+          Type a prompt or upload an image — get{" "}
+          <span className="text-[#3B82F6]">video</span>,{" "}
+          <span className="text-[#EC4899]">images</span>, and{" "}
+          <span className="text-[#8B5CF6]">3D models</span> instantly.
+        </motion.p>
+        <motion.p
+          className="text-base text-text-tertiary mb-8 max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.8, 
+            delay: 0.8,
+            type: "spring"
+          }}
+        >
+          It&apos;s <em className="text-white not-italic">that</em> fast. No experience required.
         </motion.p>
 
-        {/* CTAs met hover effecten */}
+        {/* CTAs met hover effecten - zoals 3D AI Studio */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-3 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -570,10 +552,11 @@ export default function Hero() {
             whileTap={{ scale: 0.95 }}
           >
             <Link 
-              href="/apps" 
-              className="px-6 py-2.5 text-sm font-medium rounded-lg bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg shadow-white/20"
+              href="/signup" 
+              className="inline-flex items-center gap-2 px-8 py-3 text-sm font-semibold rounded-xl bg-white text-black hover:bg-white/90 transition-all duration-300 shadow-lg shadow-white/20"
             >
-              Get Started
+              <Sparkles size={16} />
+              Get started - It&apos;s magic
             </Link>
           </motion.div>
           <motion.div
@@ -582,11 +565,63 @@ export default function Hero() {
           >
             <Link 
               href="/apps" 
-              className="px-6 py-2.5 text-sm font-medium rounded-lg bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium rounded-xl bg-transparent border border-white/20 text-white hover:bg-white/10 transition-all duration-300"
             >
-              Browse Apps
+              View examples
+              <ChevronDown size={16} className="-rotate-90" />
             </Link>
           </motion.div>
+        </motion.div>
+
+        {/* Social Proof / Trust Badges */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="flex flex-wrap justify-center items-center gap-6 sm:gap-10 mt-10 mb-6"
+        >
+          {/* Creators count */}
+          <div className="flex items-center gap-2">
+            <div className="flex -space-x-2">
+              {[1, 2, 3, 4].map((i) => (
+                <div 
+                  key={i} 
+                  className="w-7 h-7 rounded-full bg-gradient-to-br from-[#3B82F6] to-[#EC4899] border-2 border-bg-primary"
+                />
+              ))}
+            </div>
+            <span className="text-sm text-text-secondary">
+              <span className="text-white font-semibold">10,000+</span> creators
+            </span>
+          </div>
+
+          {/* Divider */}
+          <div className="hidden sm:block w-px h-6 bg-white/10" />
+
+          {/* Rating */}
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <svg key={i} className="w-4 h-4 text-[#22C55E]" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span className="text-sm text-text-secondary">
+              Rated <span className="text-white font-semibold">Excellent</span>
+            </span>
+          </div>
+
+          {/* Divider */}
+          <div className="hidden sm:block w-px h-6 bg-white/10" />
+
+          {/* Assets generated */}
+          <div className="flex items-center gap-2">
+            <Sparkles size={16} className="text-[#EC4899]" />
+            <span className="text-sm text-text-secondary">
+              <span className="text-white font-semibold">1,284</span> assets generated today
+            </span>
+          </div>
         </motion.div>
 
         {/* Logo Carousel onder de buttons - seamless infinite loop */}
