@@ -25,11 +25,69 @@ const SIMULATE_PHRASES = [
   { phrase: "your Imagination", color: "#8B5CF6" },
 ];
 
+// Calculate realistic "creating right now" based on time of day
+function getCreatingNow(): number {
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  
+  // Base values for different times (startup realistic)
+  let base: number;
+  let variance: number;
+  
+  if (hour >= 6 && hour < 9) {
+    // Early morning: 12-35
+    base = 12 + Math.floor((hour - 6) * 8);
+    variance = 10;
+  } else if (hour >= 9 && hour < 12) {
+    // Morning: 35-85
+    base = 35 + Math.floor((hour - 9) * 17);
+    variance = 15;
+  } else if (hour >= 12 && hour < 15) {
+    // Afternoon peak: 85-140
+    base = 85 + Math.floor((hour - 12) * 18);
+    variance = 20;
+  } else if (hour >= 15 && hour < 18) {
+    // Late afternoon: 100-130
+    base = 130 - Math.floor((hour - 15) * 10);
+    variance = 18;
+  } else if (hour >= 18 && hour < 22) {
+    // Evening: 50-100
+    base = 100 - Math.floor((hour - 18) * 12);
+    variance = 15;
+  } else {
+    // Night (22-6): 8-25
+    base = 8 + (hour < 6 ? hour : 0);
+    variance = 8;
+  }
+  
+  // Add minute-based micro variance
+  const minuteVariance = Math.floor(Math.sin(minute * 0.2) * (variance / 2));
+  
+  return Math.max(5, base + minuteVariance);
+}
+
 export default function Hero() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [creatingNow, setCreatingNow] = useState(getCreatingNow());
+
+  // Update creating now every 30 seconds with small fluctuation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCreatingNow(prev => {
+        const target = getCreatingNow();
+        // Smooth transition: move towards target by 1-3
+        const diff = target - prev;
+        if (Math.abs(diff) <= 3) return target;
+        return prev + Math.sign(diff) * (1 + Math.floor(Math.random() * 3));
+      });
+    }, 30000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const currentPhrase = SIMULATE_PHRASES[currentWordIndex].phrase;
@@ -516,9 +574,9 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* Main Headline with Typewriter - All on one line */}
+        {/* Main Headline with Typewriter - Centered */}
         <motion.h1
-          className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-6 leading-tight tracking-tight whitespace-nowrap"
+          className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-text-primary mb-6 leading-tight tracking-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -532,14 +590,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-flex items-baseline"
+            className="inline-flex items-baseline justify-center"
           >
-            <span className="text-white">
-              Simulate
-            </span>
+            <span className="text-white">Simulate</span>
             <span className="inline-block w-[8px] sm:w-[12px] lg:w-[16px]" />
             <motion.span
-              className="inline-block min-w-[150px] sm:min-w-[220px] lg:min-w-[320px] xl:min-w-[380px] text-left"
+              className="inline-block"
               style={{ color: currentColor }}
               animate={{ 
                 textShadow: [
@@ -567,7 +623,7 @@ export default function Hero() {
 
         {/* Powerful Subheadline */}
         <motion.p
-          className="text-base sm:text-lg text-text-secondary mb-3 max-w-2xl mx-auto font-light"
+          className="text-base sm:text-lg text-text-secondary mb-3 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ 
@@ -576,28 +632,8 @@ export default function Hero() {
             type: "spring"
           }}
         >
-          Transform your ideas into{" "}
-          <motion.span 
-            className="text-[#3B82F6] font-medium"
-            animate={{ opacity: [1, 0.7, 1] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0 }}
-          >
-            stunning videos
-          </motion.span>,{" "}
-          <motion.span 
-            className="text-[#EC4899] font-medium"
-            animate={{ opacity: [1, 0.7, 1] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-          >
-            photorealistic images
-          </motion.span>, and{" "}
-          <motion.span 
-            className="text-[#8B5CF6] font-medium"
-            animate={{ opacity: [1, 0.7, 1] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-          >
-            3D worlds
-          </motion.span>
+          The AI workspace where ideas become{" "}
+          <span className="text-white font-medium">reality</span> — in seconds.
         </motion.p>
         <motion.p
           className="text-sm sm:text-base text-text-tertiary mb-8 max-w-lg mx-auto"
@@ -609,7 +645,7 @@ export default function Hero() {
             type: "spring"
           }}
         >
-          One prompt. <span className="text-white font-medium">Infinite possibilities.</span> No learning curve.
+          No experience needed. Just describe what you want.
         </motion.p>
 
         {/* CTAs */}
@@ -678,7 +714,7 @@ export default function Hero() {
               ))}
             </div>
             <span className="text-sm text-text-secondary">
-              <span className="text-white font-bold">10,000+</span> creators worldwide
+              Join <span className="text-white font-medium">creators worldwide</span>
             </span>
           </div>
 
@@ -735,7 +771,7 @@ export default function Hero() {
               }}
             />
             <span className="text-sm text-text-secondary">
-              <span className="text-white font-bold">847</span> creating right now
+              <span className="text-white font-bold">{creatingNow}</span> creating right now
             </span>
           </motion.div>
         </motion.div>
