@@ -204,7 +204,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold text-text-primary mb-4">8. Limitation of Liability</h2>
               <p className="uppercase text-xs tracking-wider mb-4">
-                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL LABOBOX, ITS AFFILIATES, 
+                TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MINDHELLO, ITS AFFILIATES, 
                 OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, PUNITIVE, 
                 INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES 
                 FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR 

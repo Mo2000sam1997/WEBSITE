@@ -16,18 +16,13 @@ const sidebarNav = [
     ],
   },
   {
-    title: "Standard Apps",
+    title: "Apps",
     items: [
       { title: "Chat Models", href: "/docs/apps/chat-models" },
-      { title: "Image Models", href: "/docs/apps/image-models" },
-    ],
-  },
-  {
-    title: "Premium Apps",
-    items: [
-      { title: "CleanShot", href: "/docs/apps/cleanshot" },
-      { title: "Adshot", href: "/docs/apps/adshot" },
-      { title: "3D Studio", href: "/docs/apps/3d-studio" },
+      { title: "Create Image", href: "/docs/apps/create-image" },
+      { title: "Photoshoot", href: "/docs/apps/photoshoot" },
+      { title: "Product Ads", href: "/docs/apps/product-ads" },
+      { title: "Text to 3D", href: "/docs/apps/text-to-3d" },
     ],
   },
   {

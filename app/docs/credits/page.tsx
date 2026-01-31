@@ -12,9 +12,9 @@ const creditsReference = [
   { type: "Budget Image", credits: "5-15", examples: "Flux.2 Flex (5), Gemini Flash (15)" },
   { type: "Standard Image", credits: "30-45", examples: "GPT-5 Mini (30), Gemini Pro (30), Flux.2 Pro (45), Seedream 4.5 (45)" },
   { type: "Premium Image", credits: "60-75", examples: "GPT-5 Standard (60), Flux.2 Max (75)" },
-  { type: "CleanShot", credits: "100", examples: "Per product photo" },
-  { type: "Adshot", credits: "120", examples: "Per marketing visual" },
-  { type: "3D Studio", credits: "790", examples: "Per 3D model" },
+  { type: "Photoshoot", credits: "100", examples: "Per product photo" },
+  { type: "Product Ads", credits: "120", examples: "Per marketing visual" },
+  { type: "Text to 3D", credits: "790", examples: "Per 3D model" },
 ];
 
 const CreditIcon = ({ size = 24 }: { size?: number }) => (
@@ -81,7 +81,7 @@ export default function CreditsPage() {
                 <div className="flex items-center justify-center gap-2 text-xl font-bold text-text-primary mb-1">
                   <CreditIcon size={28} /> 100+
                 </div>
-                <div className="text-sm text-text-secondary">Premium apps</div>
+                <div className="text-sm text-text-secondary">Professional apps</div>
               </div>
             </div>
           </div>
@@ -189,38 +189,42 @@ export default function CreditsPage() {
         <div className="space-y-4">
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
             <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
-              <CreditIcon size={20} /> 750 credits
+              <CreditIcon size={20} /> 150 credits (Free)
             </h4>
             <ul className="space-y-1 text-sm text-text-secondary">
-              <li className="flex items-center gap-2">• ~750 budget chat messages (Llama, GPT-5 Nano)</li>
-              <li className="flex items-center gap-2">• OR ~93 GPT-5 Chat messages</li>
-              <li className="flex items-center gap-2">• OR ~150 Flux.2 Flex images</li>
+              <li className="flex items-center gap-2">• ~150 budget chat messages (Llama, GPT-5 Nano)</li>
+              <li className="flex items-center gap-2">• OR ~18 GPT-5 Chat messages</li>
+              <li className="flex items-center gap-2">• OR ~30 Flux.2 Flex images</li>
             </ul>
           </div>
 
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
             <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
-              <CreditIcon size={20} /> 5,000 credits
+              <CreditIcon size={20} /> 1,500 credits (Starter)
             </h4>
             <ul className="space-y-1 text-sm text-text-secondary">
-              <li>• ~5,000 budget chat messages</li>
-              <li>• OR ~625 GPT-5 Chat messages</li>
-              <li>• OR ~50 CleanShot product photos</li>
+              <li>• ~1,500 budget chat messages</li>
+              <li>• OR ~187 GPT-5 Chat messages</li>
+              <li>• OR ~15 Photoshoot product photos</li>
             </ul>
           </div>
 
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
             <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
-              <CreditIcon size={20} /> 25,000 credits
+              <CreditIcon size={20} /> 6,000 credits (Pro)
             </h4>
-            <p className="text-sm text-text-secondary">Perfect for power users and professionals</p>
+            <ul className="space-y-1 text-sm text-text-secondary">
+              <li>• ~6,000 budget chat messages</li>
+              <li>• OR ~750 GPT-5 Chat messages</li>
+              <li>• OR ~60 Photoshoot product photos</li>
+            </ul>
           </div>
 
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
             <h4 className="font-medium text-text-primary flex items-center gap-2 mb-2">
-              <CreditIcon size={20} /> 100,000 credits
+              <CreditIcon size={20} /> 25,000 credits (Business)
             </h4>
-            <p className="text-sm text-text-secondary">For agencies and teams with high volume</p>
+            <p className="text-sm text-text-secondary">For teams and agencies with high volume needs</p>
           </div>
         </div>
 
@@ -239,13 +243,13 @@ export default function CreditsPage() {
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
             <h4 className="font-medium text-text-primary mb-2">Do credits expire?</h4>
             <p className="text-sm text-text-secondary">
-              No, credits never expire. Use them whenever you want.
+              Monthly credits roll over for 90 days on paid plans. Credit pack purchases are valid for 90 days.
             </p>
           </div>
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
             <h4 className="font-medium text-text-primary mb-2">What if I run out of credits?</h4>
             <p className="text-sm text-text-secondary">
-              You can upgrade your plan or buy extra credits via Top-Up (paid plans only).
+              You can upgrade your plan or buy credit packs anytime.
             </p>
           </div>
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">

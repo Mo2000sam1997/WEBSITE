@@ -8,7 +8,7 @@ export default function AccountPage() {
   return (
     <DocsLayout
       title="Create Account"
-      description="Create a free Mindhello.ai account and get 750 credits to start immediately."
+      description="Create a free Mindhello.ai account and get 150 credits to start immediately."
       tableOfContents={[
         { title: "Sign up", href: "#sign-up" },
         { title: "What you get", href: "#what-you-get" },
@@ -71,7 +71,7 @@ export default function AccountPage() {
           <ul className="grid md:grid-cols-2 gap-3">
             <li className="flex items-center gap-3 text-sm text-text-secondary">
               <span className="w-2 h-2 rounded-full bg-green-400" />
-              750 credits per month
+              150 credits to start
             </li>
             <li className="flex items-center gap-3 text-sm text-text-secondary">
               <span className="w-2 h-2 rounded-full bg-green-400" />
@@ -79,7 +79,7 @@ export default function AccountPage() {
             </li>
             <li className="flex items-center gap-3 text-sm text-text-secondary">
               <span className="w-2 h-2 rounded-full bg-green-400" />
-              Access to Image Models (9 AI)
+              Access to Create Image (9 AI)
             </li>
             <li className="flex items-center gap-3 text-sm text-text-secondary">
               <span className="w-2 h-2 rounded-full bg-green-400" />
@@ -106,7 +106,7 @@ export default function AccountPage() {
           </div>
           <div className="p-4 rounded-xl border border-white/10">
             <h4 className="font-medium text-text-primary mb-1">Manage subscription</h4>
-            <p className="text-sm text-text-secondary">Upgrade to Basic, Pro, or Team for more credits and Premium Apps.</p>
+            <p className="text-sm text-text-secondary">Upgrade to a paid plan for more monthly credits.</p>
           </div>
           <div className="p-4 rounded-xl border border-white/10">
             <h4 className="font-medium text-text-primary mb-1">View usage</h4>

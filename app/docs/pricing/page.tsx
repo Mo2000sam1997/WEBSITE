@@ -2,118 +2,118 @@
 
 import DocsLayout from "@/components/DocsLayout";
 import Link from "next/link";
-import { Check, X, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Check, ArrowRight } from "lucide-react";
+
+const CreditIcon = ({ size = 20 }: { size?: number }) => (
+  <Image
+    src="/images/credit-icon.png"
+    alt="credits"
+    width={size}
+    height={size}
+    className="inline-block"
+  />
+);
 
 const plans = [
-  {
-    name: "Free",
-    price: "€0",
-    credits: "750",
-    color: "#4edc96",
-    features: [
-      { text: "750 credits / month", included: true },
-      { text: "Chat Models (15 AI)", included: true },
-      { text: "Image Models (9 AI)", included: true },
-      { text: "CleanShot", included: false },
-      { text: "Adshot", included: false },
-      { text: "3D Studio", included: false },
-      { text: "Top-Up credits", included: false },
-    ],
-  },
-  {
-    name: "Basic",
-    price: "€19",
-    credits: "5,000",
-    color: "#77bdf8",
-    features: [
-      { text: "5,000 credits / month", included: true },
-      { text: "Chat Models (15 AI)", included: true },
-      { text: "Image Models (9 AI)", included: true },
-      { text: "CleanShot", included: true },
-      { text: "Adshot", included: true },
-      { text: "3D Studio", included: true },
-      { text: "Top-Up credits", included: true },
-    ],
-  },
-  {
-    name: "Pro",
-    price: "€79",
-    credits: "25,000",
-    color: "#a78bfa",
-    features: [
-      { text: "25,000 credits / month", included: true },
-      { text: "All apps", included: true },
-      { text: "Email support", included: true },
-      { text: "Credits rollover", included: true },
-      { text: "API access (coming soon)", included: true },
-    ],
-  },
-  {
-    name: "Team",
-    price: "€279",
-    credits: "100,000",
-    color: "#00d9ff",
-    features: [
-      { text: "100,000 credits / month", included: true },
-      { text: "All apps", included: true },
-      { text: "Up to 10 team members", included: true },
-      { text: "Analytics dashboard", included: true },
-      { text: "Dedicated support", included: true },
-    ],
-  },
+  { name: "Free", price: "€0", credits: "150", color: "#22C55E" },
+  { name: "Starter", price: "€9", credits: "1,500", color: "#3B82F6" },
+  { name: "Pro", price: "€29", credits: "6,000", color: "#EC4899" },
+  { name: "Business", price: "€99", credits: "25,000", color: "#8B5CF6" },
+];
+
+const creditPacks = [
+  { credits: "500", price: "€5" },
+  { credits: "2,000", price: "€15" },
+  { credits: "5,000", price: "€30" },
+  { credits: "15,000", price: "€75" },
 ];
 
 export default function PricingDocsPage() {
   return (
     <DocsLayout
-      title="Pricing Plans"
-      description="Choose the plan that fits you. Start free and upgrade whenever you want."
+      title="Pricing"
+      description="Simple, transparent pricing. All apps included on every plan."
       tableOfContents={[
-        { title: "Overview", href: "#overview" },
-        { title: "Plan comparison", href: "#comparison" },
-        { title: "Annual vs monthly", href: "#billing" },
+        { title: "How it works", href: "#how-it-works" },
+        { title: "Plans", href: "#plans" },
+        { title: "Credit packs", href: "#credit-packs" },
         { title: "Enterprise", href: "#enterprise" },
       ]}
     >
-      {/* Overview */}
-      <section id="overview" className="mb-12">
-        <h2 className="text-xl font-semibold text-text-primary mb-4">Overview</h2>
+      {/* How it works */}
+      <section id="how-it-works" className="mb-12">
+        <h2 className="text-xl font-semibold text-text-primary mb-4">How it works</h2>
         
-        <p className="text-text-secondary mb-6">
-          Mindhello.ai has four plans: Free, Basic, Pro, and Team. Each plan gives you a 
-          certain number of credits per month. More credits means more generations.
-        </p>
+        <div className="space-y-4 text-text-secondary">
+          <p>
+            Mindhello uses a simple credit system. Every action costs credits - from 
+            chat messages to video generation.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
+              <div className="text-2xl font-bold text-text-primary mb-1">1</div>
+              <h4 className="font-medium text-text-primary mb-1">Get credits</h4>
+              <p className="text-sm">Monthly subscription or buy credit packs</p>
+            </div>
+            <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
+              <div className="text-2xl font-bold text-text-primary mb-1">2</div>
+              <h4 className="font-medium text-text-primary mb-1">Use any app</h4>
+              <p className="text-sm">All apps are available on every plan</p>
+            </div>
+            <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
+              <div className="text-2xl font-bold text-text-primary mb-1">3</div>
+              <h4 className="font-medium text-text-primary mb-1">Pay per use</h4>
+              <p className="text-sm">Each action shows its credit cost upfront</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 gap-4">
+      {/* Plans */}
+      <section id="plans" className="mb-12">
+        <h2 className="text-xl font-semibold text-text-primary mb-4">Plans</h2>
+        
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
           {plans.map((plan) => (
             <div key={plan.name} className="p-4 rounded-xl bg-bg-secondary border border-white/10">
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <h3 className="font-semibold text-text-primary">{plan.name}</h3>
-                  <p className="text-sm text-text-secondary">{plan.credits} credits/month</p>
+                  <div className="flex items-center gap-1 text-sm text-text-secondary">
+                    <CreditIcon size={14} /> {plan.credits} credits
+                    {plan.name !== "Free" && " / month"}
+                  </div>
                 </div>
                 <div className="text-right">
                   <span className="text-xl font-bold" style={{ color: plan.color }}>{plan.price}</span>
-                  {plan.price !== "€0" && <span className="text-sm text-text-secondary">/month</span>}
+                  {plan.price !== "€0" && <span className="text-sm text-text-secondary">/mo</span>}
                 </div>
               </div>
               <ul className="space-y-1">
-                {plan.features.slice(0, 3).map((feature) => (
-                  <li key={feature.text} className="flex items-center gap-2 text-sm">
-                    {feature.included ? (
-                      <Check className="w-4 h-4 text-green-400" />
-                    ) : (
-                      <X className="w-4 h-4 text-red-400" />
-                    )}
-                    <span className={feature.included ? "text-text-secondary" : "text-text-tertiary"}>
-                      {feature.text}
-                    </span>
+                <li className="flex items-center gap-2 text-sm text-text-secondary">
+                  <Check className="w-4 h-4 text-green-400" />
+                  Access to all apps
+                </li>
+                <li className="flex items-center gap-2 text-sm text-text-secondary">
+                  <Check className="w-4 h-4 text-green-400" />
+                  All AI models
+                </li>
+                {plan.name !== "Free" && (
+                  <li className="flex items-center gap-2 text-sm text-text-secondary">
+                    <Check className="w-4 h-4 text-green-400" />
+                    Credits rollover (90 days)
                   </li>
-                ))}
+                )}
               </ul>
             </div>
           ))}
         </div>
+
+        <p className="text-sm text-text-tertiary">
+          Annual billing: Save 20% when you pay yearly.
+        </p>
 
         <div className="mt-6">
           <Link href="/pricing" className="inline-flex items-center gap-2 px-4 py-2 bg-accent-primary text-black rounded-lg font-medium hover:bg-accent-primary/90 transition-all">
@@ -122,97 +122,29 @@ export default function PricingDocsPage() {
         </div>
       </section>
 
-      {/* Comparison */}
-      <section id="comparison" className="mb-12">
-        <h2 className="text-xl font-semibold text-text-primary mb-4">Plan comparison</h2>
+      {/* Credit packs */}
+      <section id="credit-packs" className="mb-12">
+        <h2 className="text-xl font-semibold text-text-primary mb-4">Credit packs</h2>
         
-        <div className="rounded-xl border border-white/10 overflow-hidden overflow-x-auto">
-          <table className="w-full min-w-[600px]">
-            <thead className="bg-white/5">
-              <tr>
-                <th className="text-left text-xs font-semibold text-text-tertiary uppercase px-4 py-3">Feature</th>
-                <th className="text-center text-xs font-semibold text-text-tertiary uppercase px-4 py-3">Free</th>
-                <th className="text-center text-xs font-semibold text-text-tertiary uppercase px-4 py-3">Basic</th>
-                <th className="text-center text-xs font-semibold text-text-tertiary uppercase px-4 py-3">Pro</th>
-                <th className="text-center text-xs font-semibold text-text-tertiary uppercase px-4 py-3">Team</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/5">
-              <tr className="hover:bg-white/5">
-                <td className="px-4 py-3 text-sm text-text-primary">Credits / month</td>
-                <td className="px-4 py-3 text-sm text-center text-text-secondary">750</td>
-                <td className="px-4 py-3 text-sm text-center text-text-secondary">5,000</td>
-                <td className="px-4 py-3 text-sm text-center text-text-secondary">25,000</td>
-                <td className="px-4 py-3 text-sm text-center text-text-secondary">100,000</td>
-              </tr>
-              <tr className="hover:bg-white/5">
-                <td className="px-4 py-3 text-sm text-text-primary">Chat Models</td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-              </tr>
-              <tr className="hover:bg-white/5">
-                <td className="px-4 py-3 text-sm text-text-primary">Image Models</td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-              </tr>
-              <tr className="hover:bg-white/5">
-                <td className="px-4 py-3 text-sm text-text-primary">Premium Apps</td>
-                <td className="px-4 py-3 text-center"><X className="w-4 h-4 text-red-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-              </tr>
-              <tr className="hover:bg-white/5">
-                <td className="px-4 py-3 text-sm text-text-primary">Top-Up credits</td>
-                <td className="px-4 py-3 text-center"><X className="w-4 h-4 text-red-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-                <td className="px-4 py-3 text-center"><Check className="w-4 h-4 text-green-400 mx-auto" /></td>
-              </tr>
-              <tr className="hover:bg-white/5">
-                <td className="px-4 py-3 text-sm text-text-primary">Team members</td>
-                <td className="px-4 py-3 text-sm text-center text-text-tertiary">1</td>
-                <td className="px-4 py-3 text-sm text-center text-text-tertiary">1</td>
-                <td className="px-4 py-3 text-sm text-center text-text-tertiary">1</td>
-                <td className="px-4 py-3 text-sm text-center text-text-secondary">Up to 10</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+        <p className="text-text-secondary mb-4">
+          Need more credits? Buy credit packs anytime. Valid for 90 days.
+        </p>
 
-      {/* Billing */}
-      <section id="billing" className="mb-12">
-        <h2 className="text-xl font-semibold text-text-primary mb-4">Annual vs monthly</h2>
-        
-        <div className="bg-bg-secondary border border-white/10 rounded-xl p-6">
-          <p className="text-text-secondary mb-4">
-            Pay annually and save 20% on your subscription. Your credits are still 
-            added monthly.
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="p-4 rounded-lg bg-white/5 text-center">
-              <div className="text-sm text-text-tertiary mb-1">Basic (annual)</div>
-              <div className="text-lg font-bold text-text-primary">€15<span className="text-sm font-normal text-text-secondary">/month</span></div>
-              <div className="text-xs text-green-400">Save €48/year</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {creditPacks.map((pack) => (
+            <div key={pack.credits} className="p-4 rounded-xl bg-bg-secondary border border-white/10 text-center">
+              <div className="flex items-center justify-center gap-1 mb-2">
+                <CreditIcon size={18} />
+                <span className="font-bold text-text-primary">{pack.credits}</span>
+              </div>
+              <div className="text-lg font-bold text-text-primary">{pack.price}</div>
             </div>
-            <div className="p-4 rounded-lg bg-white/5 text-center">
-              <div className="text-sm text-text-tertiary mb-1">Pro (annual)</div>
-              <div className="text-lg font-bold text-text-primary">€63<span className="text-sm font-normal text-text-secondary">/month</span></div>
-              <div className="text-xs text-green-400">Save €192/year</div>
-            </div>
-            <div className="p-4 rounded-lg bg-white/5 text-center">
-              <div className="text-sm text-text-tertiary mb-1">Team (annual)</div>
-              <div className="text-lg font-bold text-text-primary">€229<span className="text-sm font-normal text-text-secondary">/month</span></div>
-              <div className="text-xs text-green-400">Save €600/year</div>
-            </div>
-          </div>
+          ))}
         </div>
+
+        <p className="text-sm text-text-tertiary mt-4">
+          The more you buy, the lower the cost per credit.
+        </p>
       </section>
 
       {/* Enterprise */}
@@ -221,18 +153,17 @@ export default function PricingDocsPage() {
         
         <div className="bg-gradient-to-br from-bg-secondary to-bg-primary border border-white/10 rounded-xl p-6">
           <p className="text-text-secondary mb-4">
-            Need more than 100,000 credits per month? Or want a custom solution with 
-            dedicated support, SLA, and SSO? Contact us for Enterprise pricing.
+            Need a custom solution? Volume discounts, dedicated support, SLA, and SSO available.
           </p>
           
           <ul className="space-y-2 mb-6">
             <li className="flex items-center gap-2 text-sm text-text-secondary">
               <Check className="w-4 h-4 text-green-400" />
-              Unlimited credits
+              Volume discounts
             </li>
             <li className="flex items-center gap-2 text-sm text-text-secondary">
               <Check className="w-4 h-4 text-green-400" />
-              Dedicated account manager
+              Dedicated support
             </li>
             <li className="flex items-center gap-2 text-sm text-text-secondary">
               <Check className="w-4 h-4 text-green-400" />
@@ -240,11 +171,7 @@ export default function PricingDocsPage() {
             </li>
             <li className="flex items-center gap-2 text-sm text-text-secondary">
               <Check className="w-4 h-4 text-green-400" />
-              SSO & RBAC
-            </li>
-            <li className="flex items-center gap-2 text-sm text-text-secondary">
-              <Check className="w-4 h-4 text-green-400" />
-              Priority API access
+              SSO & security
             </li>
           </ul>
 

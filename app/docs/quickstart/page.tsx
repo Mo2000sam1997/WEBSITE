@@ -23,7 +23,7 @@ export default function QuickstartPage() {
           Create your account
         </h2>
         <p className="text-text-secondary mb-4">
-          Sign up to get started. You&apos;ll receive 750 credits immediately to try the platform.
+          Sign up to get started. You&apos;ll receive 150 credits immediately to try the platform.
         </p>
         
         <div className="bg-bg-secondary border border-white/10 rounded-xl p-6 mb-4">
@@ -43,11 +43,11 @@ export default function QuickstartPage() {
             </li>
             <li className="flex items-center gap-2 text-sm text-text-secondary">
               <CheckCircle className="w-4 h-4 text-green-400" />
-              750 free credits
+              150 free credits
             </li>
             <li className="flex items-center gap-2 text-sm text-text-secondary">
               <CheckCircle className="w-4 h-4 text-green-400" />
-              Instant access to Standard Apps
+              Access to all apps
             </li>
           </ul>
         </div>
@@ -73,15 +73,15 @@ export default function QuickstartPage() {
             <p className="text-sm text-text-secondary">15 AI chat models for writing, coding, analysis.</p>
           </div>
           <div className="bg-bg-secondary border border-white/10 rounded-xl p-4">
-            <h4 className="font-medium text-text-primary mb-2">Image Models</h4>
+            <h4 className="font-medium text-text-primary mb-2">Create Image</h4>
             <p className="text-sm text-text-secondary">9 AI image generators for all styles.</p>
           </div>
           <div className="bg-bg-secondary border border-white/10 rounded-xl p-4">
-            <h4 className="font-medium text-text-primary mb-2">CleanShot</h4>
+            <h4 className="font-medium text-text-primary mb-2">Photoshoot</h4>
             <p className="text-sm text-text-secondary">Professional product photos for e-commerce.</p>
           </div>
           <div className="bg-bg-secondary border border-white/10 rounded-xl p-4">
-            <h4 className="font-medium text-text-primary mb-2">3D Studio</h4>
+            <h4 className="font-medium text-text-primary mb-2">Text to 3D</h4>
             <p className="text-sm text-text-secondary">Text to 3D model generation.</p>
           </div>
         </div>

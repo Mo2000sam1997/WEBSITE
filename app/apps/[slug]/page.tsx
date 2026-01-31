@@ -16,7 +16,10 @@ import {
   Clock,
   Star,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Coins,
+  Info,
+  ChevronRight
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -35,6 +38,7 @@ const LOGOS = [
   { name: 'DeepSeek', src: '/logos/deepseek.png' },
 ];
 import { useAppById, type MarketplaceTemplate } from "@/hooks/useMarketplaceTemplates";
+import appsData from "@/data/apps.json";
 
 // Category config
 const CATEGORY_CONFIG: Record<string, { image: string; color: string; gradient: string }> = {
@@ -68,11 +72,17 @@ const DEFAULT_FEATURES = [
   { feature: "24/7 Available", subtext: "Access anytime, anywhere" },
 ];
 
+// Get local app data
+function getLocalAppData(appId: string) {
+  return appsData.apps.find(app => app.id === appId || app.slug === appId);
+}
+
 export default function AppDetailPage() {
   const params = useParams();
   const appId = params.slug as string;
   
   const { data: app, isLoading, error } = useAppById(appId);
+  const localApp = getLocalAppData(appId);
   const heroRef = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -130,15 +140,15 @@ export default function AppDetailPage() {
     );
   }
 
-  // Not found
-  if (!app || error) {
+  // Not found - try local data
+  if ((!app || error) && !localApp) {
     return (
       <main className="min-h-screen bg-bg-primary">
         <Navbar />
         <div className="min-h-screen flex items-center justify-center">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-white mb-4">App not found</h1>
-            <p className="text-text-secondary mb-8">The app you're looking for doesn't exist.</p>
+            <p className="text-text-secondary mb-8">The app you&apos;re looking for doesn&apos;t exist.</p>
             <Link href="/apps">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -154,13 +164,24 @@ export default function AppDetailPage() {
     );
   }
 
-  const category = app.category || "Apps";
+  // Merge database app with local data
+  const category = app?.category || localApp?.category || "Apps";
   const categoryConfig = CATEGORY_CONFIG[category] || CATEGORY_CONFIG.Apps;
-  const features = app.features && app.features.length > 0 ? app.features : DEFAULT_FEATURES;
-  const images = getAllImages(app);
+  const features = app?.features && app.features.length > 0 
+    ? app.features 
+    : localApp?.features || DEFAULT_FEATURES;
+  const images = app ? getAllImages(app) : [];
   
-  // Hero background is ALTIJD de banner - verandert niet
-  const heroImage = app.banner || images[0];
+  // Hero background
+  const heroImage = app?.banner || images[0];
+  
+  // Combined data
+  const appName = app?.name || localApp?.name || "App";
+  const appDescription = localApp?.longDescription || app?.oneLiner || app?.description || localApp?.description || "";
+  const howItWorks = localApp?.howItWorks || [];
+  const useCases = localApp?.useCases || [];
+  const credits = localApp?.credits;
+  const status = localApp?.status || "live";
 
   return (
     <main className="min-h-screen bg-bg-primary noise-overlay">
@@ -174,11 +195,11 @@ export default function AppDetailPage() {
           className="absolute inset-0"
           style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
         >
-          {/* Background Image with Parallax - FIXED, doesn't change */}
+          {/* Background Image with Parallax */}
           {heroImage && (
             <Image
               src={heroImage}
-              alt={app.name}
+              alt={appName}
               fill
               className="object-cover"
               priority
@@ -236,7 +257,7 @@ export default function AppDetailPage() {
                 </motion.div>
               </Link>
 
-              {/* Category & Industry Tags */}
+              {/* Category & Status Tags */}
               <motion.div 
                 className="flex items-center gap-3 mb-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -260,7 +281,12 @@ export default function AppDetailPage() {
                   />
                   {category}
                 </span>
-                {app.industry && (
+                {status === "coming-soon" && (
+                  <span className="px-4 py-2 text-sm font-medium rounded-full bg-yellow-500/20 backdrop-blur-md border border-yellow-500/40 text-yellow-400">
+                    Coming Soon
+                  </span>
+                )}
+                {app?.industry && (
                   <span className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white">
                     {app.industry}
                   </span>
@@ -274,7 +300,7 @@ export default function AppDetailPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                {app.name}
+                {appName}
               </motion.h1>
 
               {/* Description */}
@@ -284,7 +310,7 @@ export default function AppDetailPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                {app.oneLiner || app.description}
+                {appDescription}
               </motion.p>
 
               {/* Stats Row */}
@@ -294,7 +320,7 @@ export default function AppDetailPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                {app.amountsBought !== undefined && (
+                {app?.amountsBought !== undefined && (
                   <div className="flex items-center gap-2">
                     <Users size={20} className="text-white/60" />
                     <span className="text-white font-semibold">{app.amountsBought.toLocaleString()}</span>
@@ -319,28 +345,41 @@ export default function AppDetailPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: `0 0 30px ${categoryConfig.color}50` }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 rounded-xl font-semibold text-black flex items-center gap-2 transition-all"
-                  style={{ backgroundColor: categoryConfig.color }}
-                >
-                  <Play size={20} fill="black" />
-                  Try it now
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 rounded-xl font-semibold text-white bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-2"
-                >
-                  <ExternalLink size={20} />
-                  View Documentation
-                </motion.button>
+                {status === "live" ? (
+                  <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: `0 0 30px ${categoryConfig.color}50` }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 rounded-xl font-semibold text-black flex items-center gap-2 transition-all"
+                    style={{ backgroundColor: categoryConfig.color }}
+                  >
+                    <Play size={20} fill="black" />
+                    Try it now
+                  </motion.button>
+                ) : (
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 rounded-xl font-semibold text-white bg-white/20 backdrop-blur-md border border-white/30 flex items-center gap-2 cursor-not-allowed"
+                  >
+                    <Clock size={20} />
+                    Coming Soon
+                  </motion.button>
+                )}
+                <Link href={`/docs/apps/${appId}`}>
+                  <motion.button
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 rounded-xl font-semibold text-white bg-white/10 backdrop-blur-md border border-white/20 flex items-center gap-2"
+                  >
+                    <ExternalLink size={20} />
+                    View Documentation
+                  </motion.button>
+                </Link>
               </motion.div>
 
             </motion.div>
 
-            {/* Right: Video Container (placeholder for now) */}
+            {/* Right: GIF/Video Container */}
             <motion.div
               className="relative"
               initial={{ opacity: 0, x: 50 }}
@@ -354,7 +393,7 @@ export default function AppDetailPage() {
                   style={{ backgroundColor: categoryConfig.color }}
                 />
                 
-                {/* Video Placeholder */}
+                {/* GIF/Video Placeholder - This is where GIFs will go */}
                 <div className="relative aspect-video bg-bg-secondary rounded-2xl overflow-hidden flex items-center justify-center">
                   {/* Background gradient */}
                   <div 
@@ -364,7 +403,7 @@ export default function AppDetailPage() {
                     }}
                   />
                   
-                  {/* Play button placeholder */}
+                  {/* Placeholder content */}
                   <div className="relative z-10 flex flex-col items-center gap-4">
                     <motion.div
                       className="w-20 h-20 rounded-full flex items-center justify-center border-2"
@@ -382,7 +421,7 @@ export default function AppDetailPage() {
                       />
                     </motion.div>
                     <p className="text-text-secondary text-sm">
-                      Video coming soon
+                      Demo GIF coming soon
                     </p>
                   </div>
 
@@ -408,8 +447,8 @@ export default function AppDetailPage() {
             </motion.div>
           </div>
 
-          {/* Logo Carousel - for Apps category (Chat Models) - Full Width */}
-          {(app.name?.toLowerCase().includes('chat') || category === 'Apps') && (
+          {/* Logo Carousel - for Apps category */}
+          {(appName?.toLowerCase().includes('chat') || category === 'Apps') && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -457,8 +496,158 @@ export default function AppDetailPage() {
         </motion.div>
       </section>
 
+      {/* Credit Pricing Section */}
+      {credits && (
+        <section className="py-16 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="rounded-2xl border border-white/10 bg-bg-secondary/50 backdrop-blur-sm overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="p-6 border-b border-white/10">
+                <div className="flex items-center gap-3">
+                  <div 
+                    className="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: `${categoryConfig.color}20` }}
+                  >
+                    <Image
+                      src="/images/credit-icon.png"
+                      alt="Credits"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">Credit Pricing</h3>
+                    <p className="text-sm text-text-secondary">Pay only for what you use</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="p-6">
+                {credits.fixed ? (
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <Image src="/images/credit-icon.png" alt="Credits" width={28} height={28} />
+                        <span className="text-3xl font-bold text-white">{credits.fixed}</span>
+                      </div>
+                      <span className="text-text-secondary">credits per {credits.perUnit}</span>
+                    </div>
+                    {credits.euroValue && (
+                      <div className="text-right">
+                        <span className="text-2xl font-bold text-white">€{credits.euroValue}</span>
+                        <span className="text-text-secondary text-sm block">per {credits.perUnit}</span>
+                      </div>
+                    )}
+                  </div>
+                ) : credits.examples ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="text-text-secondary">Range:</span>
+                      <div className="flex items-center gap-1">
+                        <Image src="/images/credit-icon.png" alt="Credits" width={20} height={20} />
+                        <span className="font-semibold text-white">{credits.min} - {credits.max}</span>
+                      </div>
+                      <span className="text-text-secondary">credits depending on model</span>
+                    </div>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {credits.examples.map((example: { model: string; credits: number; tier: string }, idx: number) => (
+                        <div 
+                          key={idx}
+                          className="flex items-center justify-between p-3 rounded-lg bg-white/5"
+                        >
+                          <span className="text-sm text-text-secondary">{example.model}</span>
+                          <div className="flex items-center gap-1">
+                            <Image src="/images/credit-icon.png" alt="" width={16} height={16} />
+                            <span className="font-medium text-white">{example.credits}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : credits.estimated ? (
+                  <div className="flex items-center gap-2">
+                    <Info size={18} className="text-yellow-400" />
+                    <span className="text-text-secondary">{credits.estimated}</span>
+                  </div>
+                ) : null}
+                
+                <div className="mt-6 pt-4 border-t border-white/10">
+                  <Link 
+                    href="/docs/credits" 
+                    className="inline-flex items-center gap-2 text-sm hover:underline"
+                    style={{ color: categoryConfig.color }}
+                  >
+                    Learn more about credits
+                    <ChevronRight size={16} />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* How It Works Section */}
+      {howItWorks.length > 0 && (
+        <section className="py-24 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-bold text-white mb-4">
+                How it <span style={{ color: categoryConfig.color }}>works</span>
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                Get started in just a few simple steps
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {howItWorks.map((step: { step: number; title: string; description: string }, index: number) => (
+                <motion.div
+                  key={index}
+                  className="relative p-6 rounded-2xl bg-bg-secondary/50 backdrop-blur-sm border border-white/5"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {/* Step number */}
+                  <div 
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold mb-4"
+                    style={{ 
+                      backgroundColor: `${categoryConfig.color}20`,
+                      color: categoryConfig.color
+                    }}
+                  >
+                    {step.step}
+                  </div>
+                  
+                  {/* Arrow connector */}
+                  {index < howItWorks.length - 1 && (
+                    <div className="hidden lg:block absolute top-10 -right-3 z-10">
+                      <ChevronRight size={24} className="text-white/20" />
+                    </div>
+                  )}
+                  
+                  <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
+                  <p className="text-text-secondary text-sm">{step.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Image Apps: Example Results Grid */}
-      {category === "Image" && app.exampleResults && app.exampleResults.length > 0 && (
+      {category === "Image" && app?.exampleResults && app.exampleResults.length > 0 && (
         <section className="py-24 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -471,7 +660,7 @@ export default function AppDetailPage() {
                 Example <span style={{ color: categoryConfig.color }}>Results</span>
               </h2>
               <p className="text-text-secondary text-lg">
-                See what others have created with {app.name}
+                See what others have created with {appName}
               </p>
             </motion.div>
 
@@ -486,7 +675,6 @@ export default function AppDetailPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  {/* Glow effect on hover */}
                   <div 
                     className="absolute -inset-2 rounded-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-xl"
                     style={{ backgroundColor: categoryConfig.color }}
@@ -498,15 +686,51 @@ export default function AppDetailPage() {
                   >
                     <Image
                       src={image}
-                      alt={`${app.name} example ${index + 1}`}
+                      alt={`${appName} example ${index + 1}`}
                       fill
                       className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     
-                    {/* Overlay gradient on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Use Cases Section */}
+      {useCases.length > 0 && (
+        <section className="py-24 relative bg-bg-secondary/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl font-bold text-white mb-4">
+                Use <span style={{ color: categoryConfig.color }}>Cases</span>
+              </h2>
+              <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                Popular ways people use {appName}
+              </p>
+            </motion.div>
+
+            <div className="flex flex-wrap justify-center gap-4">
+              {useCases.map((useCase: string, index: number) => (
+                <motion.div
+                  key={index}
+                  className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-text-secondary hover:border-white/20 hover:text-white transition-all"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {useCase}
                 </motion.div>
               ))}
             </div>
@@ -525,7 +749,7 @@ export default function AppDetailPage() {
           >
             <h2 className="text-4xl font-bold text-white mb-4">
               Why choose{" "}
-              <span style={{ color: categoryConfig.color }}>{app.name}</span>?
+              <span style={{ color: categoryConfig.color }}>{appName}</span>?
             </h2>
             <p className="text-text-secondary text-lg max-w-2xl mx-auto">
               Discover the powerful features that make this app stand out
@@ -533,7 +757,7 @@ export default function AppDetailPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.slice(0, 8).map((feature, index) => (
+            {features.slice(0, 8).map((feature: { feature: string; subtext: string }, index: number) => (
               <motion.div
                 key={index}
                 className="group relative p-6 rounded-2xl bg-bg-secondary/50 backdrop-blur-sm border border-white/5 overflow-hidden"
@@ -543,7 +767,6 @@ export default function AppDetailPage() {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5, borderColor: `${categoryConfig.color}40` }}
               >
-                {/* Glow on hover */}
                 <div 
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
@@ -573,7 +796,6 @@ export default function AppDetailPage() {
 
       {/* CTA Section */}
       <section className="py-32 relative overflow-hidden">
-        {/* Background Effects */}
         <div className="absolute inset-0">
           <div 
             className="absolute inset-0 opacity-30"
@@ -599,7 +821,7 @@ export default function AppDetailPage() {
 
             <h2 className="text-5xl font-bold text-white mb-6">
               Start using{" "}
-              <span style={{ color: categoryConfig.color }}>{app.name}</span>{" "}
+              <span style={{ color: categoryConfig.color }}>{appName}</span>{" "}
               today
             </h2>
             
@@ -608,22 +830,35 @@ export default function AppDetailPage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: `0 0 40px ${categoryConfig.color}60` }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-xl font-semibold text-black text-lg flex items-center gap-3 transition-all"
-                style={{ backgroundColor: categoryConfig.color }}
-              >
-                Get Started Free
-                <ArrowRight size={22} />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-5 rounded-xl font-semibold text-white text-lg bg-white/10 backdrop-blur-md border border-white/20"
-              >
-                View Pricing
-              </motion.button>
+              {status === "live" ? (
+                <motion.button
+                  whileHover={{ scale: 1.05, boxShadow: `0 0 40px ${categoryConfig.color}60` }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-5 rounded-xl font-semibold text-black text-lg flex items-center gap-3 transition-all"
+                  style={{ backgroundColor: categoryConfig.color }}
+                >
+                  Get Started Free
+                  <ArrowRight size={22} />
+                </motion.button>
+              ) : (
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-5 rounded-xl font-semibold text-white text-lg bg-white/20 backdrop-blur-md border border-white/30 flex items-center gap-3"
+                >
+                  <Clock size={22} />
+                  Coming Soon
+                </motion.button>
+              )}
+              <Link href="/pricing">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-5 rounded-xl font-semibold text-white text-lg bg-white/10 backdrop-blur-md border border-white/20"
+                >
+                  View Pricing
+                </motion.button>
+              </Link>
             </div>
 
             {/* Trust Badges */}

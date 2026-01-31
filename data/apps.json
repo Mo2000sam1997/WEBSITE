@@ -1,150 +1,360 @@
 {
   "apps": [
     {
-      "id": "text-to-video",
-      "name": "Text to Video",
-      "slug": "text-to-video",
-      "description": "Transform your text prompts into stunning videos with AI",
-      "category": "Video",
-      "categoryColor": "#3B82F6",
-      "tags": ["AI", "Video Generation"],
-      "pricing": "From €0.50/video",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/text-to-video/thumbnail.png",
-      "status": "coming-soon",
-      "webhookUrl": ""
-    },
-    {
-      "id": "image-to-video",
-      "name": "Image to Video",
-      "slug": "image-to-video",
-      "description": "Animate your images into dynamic videos",
-      "category": "Video",
-      "categoryColor": "#3B82F6",
-      "tags": ["AI", "Animation"],
-      "pricing": "From €0.40/video",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/image-to-video/thumbnail.png",
-      "status": "coming-soon",
-      "webhookUrl": ""
-    },
-    {
       "id": "create-image",
       "name": "Create Image",
       "slug": "create-image",
       "description": "Generate stunning images from text with 9 AI models",
+      "longDescription": "Create Image gives you access to 9 powerful AI image generation models in one place. From quick drafts with Flux.2 Flex to photorealistic masterpieces with GPT-5 Standard, choose the perfect model for your needs. Simply describe what you want to see, and watch AI bring your vision to life in seconds.",
       "category": "Image",
       "categoryColor": "#EC4899",
-      "tags": ["AI", "Image Generation"],
-      "pricing": "From €0.01/image",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/create-image/thumbnail.png",
+      "tags": ["AI", "Image Generation", "Text to Image"],
       "status": "live",
       "featured": true,
-      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/imagestack"
-    },
-    {
-      "id": "image-edit",
-      "name": "Image Edit",
-      "slug": "image-edit",
-      "description": "Edit and enhance images with AI-powered prompts",
-      "category": "Image",
-      "categoryColor": "#EC4899",
-      "tags": ["AI", "Image Editing"],
-      "pricing": "From €0.05/edit",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/image-edit/thumbnail.png",
-      "status": "coming-soon",
-      "webhookUrl": ""
-    },
-    {
-      "id": "photoshoot",
-      "name": "Photoshoot",
-      "slug": "photoshoot",
-      "description": "Professional product photography with AI",
-      "category": "Image",
-      "categoryColor": "#EC4899",
-      "tags": ["AI", "E-commerce", "Product Photography"],
-      "pricing": "From €0.30/image",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/cleanshot/thumbnail.png",
-      "heroImage": "/images/cleanshot/hero.png",
-      "status": "live",
-      "featured": true,
-      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/cleanshot"
-    },
-    {
-      "id": "product-ads",
-      "name": "Product Ads",
-      "slug": "product-ads",
-      "description": "Generate marketing visuals in 30 seconds",
-      "category": "Image",
-      "categoryColor": "#EC4899",
-      "tags": ["AI", "Marketing", "Ads"],
-      "pricing": "From €0.25/image",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/adshot/thumbnail.png",
-      "heroImage": "/images/adshot/hero.png",
-      "status": "live",
-      "featured": true,
-      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/adshot"
-    },
-    {
-      "id": "face-swap",
-      "name": "Face Swap",
-      "slug": "face-swap",
-      "description": "Swap faces in photos with AI precision",
-      "category": "Image",
-      "categoryColor": "#EC4899",
-      "tags": ["AI", "Face Swap"],
-      "pricing": "From €0.10/swap",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/face-swap/thumbnail.png",
-      "status": "coming-soon",
-      "webhookUrl": ""
-    },
-    {
-      "id": "text-to-3d",
-      "name": "Text to 3D",
-      "slug": "text-to-3d",
-      "description": "Turn text prompts into 3D models",
-      "category": "3D",
-      "categoryColor": "#8B5CF6",
-      "tags": ["AI", "3D Modeling"],
-      "pricing": "From €0.20/model",
-      "pricingTier": "Pro, Business",
-      "thumbnail": "/images/3d-studio/thumbnail.png",
-      "status": "live",
-      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/3dstudio"
-    },
-    {
-      "id": "image-to-3d",
-      "name": "Image to 3D",
-      "slug": "image-to-3d",
-      "description": "Convert images into 3D models",
-      "category": "3D",
-      "categoryColor": "#8B5CF6",
-      "tags": ["AI", "3D Modeling"],
-      "pricing": "From €0.25/model",
-      "pricingTier": "Pro, Business",
-      "thumbnail": "/images/3d-studio/thumbnail.png",
-      "status": "live",
-      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/3dstudio"
+      "credits": {
+        "min": 5,
+        "max": 75,
+        "examples": [
+          { "model": "Flux.2 Flex", "credits": 5, "tier": "budget" },
+          { "model": "Gemini Flash", "credits": 15, "tier": "budget" },
+          { "model": "GPT-5 Mini", "credits": 30, "tier": "standard" },
+          { "model": "Flux.2 Pro", "credits": 45, "tier": "standard" },
+          { "model": "Flux.2 Max", "credits": 75, "tier": "premium" }
+        ]
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Describe your image", "description": "Type a detailed description of what you want to create" },
+        { "step": 2, "title": "Choose a model", "description": "Select from 9 AI models based on speed vs quality" },
+        { "step": 3, "title": "Generate", "description": "Click generate and get your image in seconds" },
+        { "step": 4, "title": "Download or edit", "description": "Save your image or continue editing with prompts" }
+      ],
+      "useCases": [
+        "Social media content creation",
+        "Marketing visuals and ads",
+        "Concept art and illustrations",
+        "Product mockups",
+        "Personal creative projects"
+      ],
+      "features": [
+        { "feature": "9 AI Models", "subtext": "From budget-friendly to premium quality" },
+        { "feature": "Instant Results", "subtext": "Generate images in 2-10 seconds" },
+        { "feature": "Multiple Styles", "subtext": "Photorealistic, cartoon, artistic, and more" },
+        { "feature": "High Resolution", "subtext": "Up to 1024x1024 pixels" }
+      ]
     },
     {
       "id": "chat-models",
       "name": "Chat Models",
       "slug": "chat-models",
       "description": "Access 15 AI chat models in one place",
+      "longDescription": "Chat Models brings together 15 of the world's best AI assistants in a single, unified interface. Switch between GPT-5, Claude, Gemini, Llama, and more without juggling multiple subscriptions. From quick questions to deep research, find the perfect AI for every task.",
       "category": "Apps",
       "categoryColor": "#22C55E",
-      "tags": ["AI", "Chat", "LLM"],
-      "pricing": "From €0.001/message",
-      "pricingTier": "All tiers",
-      "thumbnail": "/images/chatmodels/thumbnail.png",
+      "tags": ["AI", "Chat", "LLM", "Assistant"],
       "status": "live",
       "featured": true,
-      "webhookUrl": "https://labobox.app.n8n.cloud/webhook/chatmodels"
+      "credits": {
+        "min": 1,
+        "max": 14,
+        "examples": [
+          { "model": "Llama 3.3 70B", "credits": 1, "tier": "free" },
+          { "model": "GPT-5 Nano", "credits": 1, "tier": "budget" },
+          { "model": "Claude Haiku 4.5", "credits": 2, "tier": "standard" },
+          { "model": "GPT-5 Chat", "credits": 8, "tier": "premium" },
+          { "model": "Claude Sonnet 4.5", "credits": 14, "tier": "premium" }
+        ]
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Select a model", "description": "Choose from 15 AI models based on your needs" },
+        { "step": 2, "title": "Start chatting", "description": "Type your question or request" },
+        { "step": 3, "title": "Get instant answers", "description": "Receive streaming responses in real-time" },
+        { "step": 4, "title": "Continue the conversation", "description": "Follow up with more questions" }
+      ],
+      "useCases": [
+        "Research and learning",
+        "Writing assistance",
+        "Code generation and debugging",
+        "Brainstorming ideas",
+        "Language translation"
+      ],
+      "features": [
+        { "feature": "15 AI Models", "subtext": "GPT-5, Claude, Gemini, Llama, and more" },
+        { "feature": "Real-time Streaming", "subtext": "See responses as they're generated" },
+        { "feature": "Web Search", "subtext": "Perplexity includes live web results" },
+        { "feature": "Conversation History", "subtext": "Continue where you left off" }
+      ]
+    },
+    {
+      "id": "photoshoot",
+      "name": "Photoshoot",
+      "slug": "photoshoot",
+      "description": "Professional product photography with AI",
+      "longDescription": "Photoshoot transforms your simple product photos into professional studio-quality images. Upload any product image and let AI place it in beautiful, realistic settings. Perfect for e-commerce, marketing, and social media. No photographer or studio needed.",
+      "category": "Image",
+      "categoryColor": "#EC4899",
+      "tags": ["AI", "E-commerce", "Product Photography"],
+      "status": "live",
+      "featured": true,
+      "credits": {
+        "fixed": 100,
+        "perUnit": "image"
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Upload your product", "description": "Upload a clear photo of your product (PNG or JPG)" },
+        { "step": 2, "title": "Choose a style", "description": "Select a background style or describe your own" },
+        { "step": 3, "title": "Generate", "description": "AI creates a professional product photo" },
+        { "step": 4, "title": "Download", "description": "Get your studio-quality image ready for use" }
+      ],
+      "useCases": [
+        "E-commerce product listings",
+        "Amazon and Shopify stores",
+        "Social media product posts",
+        "Marketing materials",
+        "Product catalogs"
+      ],
+      "features": [
+        { "feature": "Studio Quality", "subtext": "Professional lighting and shadows" },
+        { "feature": "Custom Backgrounds", "subtext": "Choose from presets or describe your own" },
+        { "feature": "Automatic Enhancement", "subtext": "AI improves product appearance" },
+        { "feature": "Multiple Angles", "subtext": "Generate various perspectives" }
+      ]
+    },
+    {
+      "id": "product-ads",
+      "name": "Product Ads",
+      "slug": "product-ads",
+      "description": "Generate marketing visuals in 30 seconds",
+      "longDescription": "Product Ads creates scroll-stopping marketing visuals from your product photos. Upload your product, add your brand colors and messaging, and get ready-to-use ad creatives in seconds. Perfect for social media ads, banners, and promotional content.",
+      "category": "Image",
+      "categoryColor": "#EC4899",
+      "tags": ["AI", "Marketing", "Ads", "Social Media"],
+      "status": "live",
+      "featured": true,
+      "credits": {
+        "fixed": 120,
+        "perUnit": "image"
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Upload your product", "description": "Add your product image" },
+        { "step": 2, "title": "Add your branding", "description": "Include colors, logo, and messaging" },
+        { "step": 3, "title": "Select a style", "description": "Choose an ad template or style" },
+        { "step": 4, "title": "Generate", "description": "Get marketing-ready visuals instantly" }
+      ],
+      "useCases": [
+        "Facebook and Instagram ads",
+        "Google Display ads",
+        "Social media posts",
+        "Email marketing",
+        "Website banners"
+      ],
+      "features": [
+        { "feature": "Ad-Ready Output", "subtext": "Optimized sizes for all platforms" },
+        { "feature": "Brand Consistency", "subtext": "Your colors and style maintained" },
+        { "feature": "Text Integration", "subtext": "Headlines and CTAs included" },
+        { "feature": "Multiple Variations", "subtext": "A/B test different creatives" }
+      ]
+    },
+    {
+      "id": "text-to-3d",
+      "name": "Text to 3D",
+      "slug": "text-to-3d",
+      "description": "Turn text prompts into 3D models",
+      "longDescription": "Text to 3D converts your text descriptions into fully-formed 3D models. Powered by Hunyuan3D-v3, create detailed 3D assets for games, AR/VR, product visualization, and more. Export in standard formats compatible with all 3D software.",
+      "category": "3D",
+      "categoryColor": "#8B5CF6",
+      "tags": ["AI", "3D Modeling", "Text to 3D"],
+      "status": "live",
+      "credits": {
+        "fixed": 790,
+        "perUnit": "model",
+        "euroValue": 0.79
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Describe your object", "description": "Type a detailed description of the 3D model you want" },
+        { "step": 2, "title": "Choose quality", "description": "Select normal, lowpoly, or geometry mode" },
+        { "step": 3, "title": "Generate", "description": "AI creates your 3D model in ~30 seconds" },
+        { "step": 4, "title": "Export", "description": "Download in GLB, OBJ, or FBX format" }
+      ],
+      "useCases": [
+        "Game asset creation",
+        "AR/VR experiences",
+        "Product prototyping",
+        "3D printing models",
+        "Animation and film"
+      ],
+      "features": [
+        { "feature": "Multiple Modes", "subtext": "Normal, lowpoly, and geometry options" },
+        { "feature": "Export Formats", "subtext": "GLB, OBJ, FBX compatible" },
+        { "feature": "360° Preview", "subtext": "Rotate and inspect before download" },
+        { "feature": "Texture Mapping", "subtext": "Automatic UV and textures included" }
+      ]
+    },
+    {
+      "id": "image-to-3d",
+      "name": "Image to 3D",
+      "slug": "image-to-3d",
+      "description": "Convert images into 3D models",
+      "longDescription": "Image to 3D transforms your 2D images into detailed 3D models. Upload a photo of any object and get a fully-textured 3D model ready for use. Ideal for product visualization, game development, and creative projects.",
+      "category": "3D",
+      "categoryColor": "#8B5CF6",
+      "tags": ["AI", "3D Modeling", "Image to 3D"],
+      "status": "live",
+      "credits": {
+        "fixed": 790,
+        "perUnit": "model",
+        "euroValue": 0.79
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Upload an image", "description": "Upload a clear photo of the object" },
+        { "step": 2, "title": "AI analyzes", "description": "The model understands depth and structure" },
+        { "step": 3, "title": "Generate 3D", "description": "A full 3D model is created from the image" },
+        { "step": 4, "title": "Export", "description": "Download in your preferred format" }
+      ],
+      "useCases": [
+        "Product 3D visualization",
+        "E-commerce 3D views",
+        "Game assets from photos",
+        "AR product try-on",
+        "3D printing from photos"
+      ],
+      "features": [
+        { "feature": "Single Image Input", "subtext": "No multi-angle photos needed" },
+        { "feature": "Automatic Texturing", "subtext": "Colors and materials preserved" },
+        { "feature": "High Detail", "subtext": "Captures fine object details" },
+        { "feature": "Quick Processing", "subtext": "Results in under a minute" }
+      ]
+    },
+    {
+      "id": "text-to-video",
+      "name": "Text to Video",
+      "slug": "text-to-video",
+      "description": "Transform your text prompts into stunning videos with AI",
+      "longDescription": "Text to Video brings your written ideas to life as moving visuals. Describe a scene, and AI generates a video clip that matches your vision. Perfect for content creators, marketers, and storytellers who need quick video content.",
+      "category": "Video",
+      "categoryColor": "#3B82F6",
+      "tags": ["AI", "Video Generation", "Text to Video"],
+      "status": "coming-soon",
+      "credits": {
+        "estimated": "From 500 credits/video"
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Write your scene", "description": "Describe what should happen in the video" },
+        { "step": 2, "title": "Set parameters", "description": "Choose duration, style, and quality" },
+        { "step": 3, "title": "Generate", "description": "AI creates your video clip" },
+        { "step": 4, "title": "Download", "description": "Export in MP4 format" }
+      ],
+      "useCases": [
+        "Social media content",
+        "Marketing videos",
+        "Concept visualization",
+        "Storyboarding",
+        "Creative projects"
+      ],
+      "features": [
+        { "feature": "Text to Motion", "subtext": "Describe scenes in natural language" },
+        { "feature": "Multiple Styles", "subtext": "Realistic, animated, artistic" },
+        { "feature": "HD Output", "subtext": "Up to 1080p resolution" },
+        { "feature": "Variable Length", "subtext": "2-10 second clips" }
+      ]
+    },
+    {
+      "id": "image-to-video",
+      "name": "Image to Video",
+      "slug": "image-to-video",
+      "description": "Animate your images into dynamic videos",
+      "longDescription": "Image to Video breathes life into your still images. Upload any photo and watch it transform into a moving video with realistic motion, camera movement, and effects. Turn product shots into engaging content or bring artwork to life.",
+      "category": "Video",
+      "categoryColor": "#3B82F6",
+      "tags": ["AI", "Animation", "Image to Video"],
+      "status": "coming-soon",
+      "credits": {
+        "estimated": "From 400 credits/video"
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Upload your image", "description": "Add any still photo or artwork" },
+        { "step": 2, "title": "Describe the motion", "description": "Tell AI how you want it to move" },
+        { "step": 3, "title": "Generate", "description": "Watch your image come to life" },
+        { "step": 4, "title": "Download", "description": "Save your animated video" }
+      ],
+      "useCases": [
+        "Product animations",
+        "Social media content",
+        "Artwork animations",
+        "Marketing videos",
+        "Photo slideshows"
+      ],
+      "features": [
+        { "feature": "Natural Motion", "subtext": "Realistic movement and physics" },
+        { "feature": "Camera Effects", "subtext": "Zoom, pan, and parallax" },
+        { "feature": "Style Preservation", "subtext": "Maintains original image quality" },
+        { "feature": "Quick Generation", "subtext": "Results in under a minute" }
+      ]
+    },
+    {
+      "id": "image-edit",
+      "name": "Image Edit",
+      "slug": "image-edit",
+      "description": "Edit and enhance images with AI-powered prompts",
+      "longDescription": "Image Edit lets you modify existing images using natural language. Want to change the background? Remove an object? Add something new? Just describe the edit you want, and AI makes it happen while keeping the rest of your image intact.",
+      "category": "Image",
+      "categoryColor": "#EC4899",
+      "tags": ["AI", "Image Editing", "Photo Editing"],
+      "status": "coming-soon",
+      "credits": {
+        "estimated": "From 50 credits/edit"
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Upload your image", "description": "Add the photo you want to edit" },
+        { "step": 2, "title": "Describe the edit", "description": "Tell AI what to change" },
+        { "step": 3, "title": "Generate", "description": "AI applies your requested edit" },
+        { "step": 4, "title": "Refine or download", "description": "Make more edits or save" }
+      ],
+      "useCases": [
+        "Background replacement",
+        "Object removal",
+        "Style transfer",
+        "Color correction",
+        "Adding elements"
+      ],
+      "features": [
+        { "feature": "Natural Language", "subtext": "Describe edits in plain English" },
+        { "feature": "Selective Editing", "subtext": "Change only what you want" },
+        { "feature": "Undo/Redo", "subtext": "Experiment without fear" },
+        { "feature": "High Quality", "subtext": "Preserves image resolution" }
+      ]
+    },
+    {
+      "id": "face-swap",
+      "name": "Face Swap",
+      "slug": "face-swap",
+      "description": "Swap faces in photos with AI precision",
+      "longDescription": "Face Swap uses advanced AI to seamlessly swap faces between photos. Upload a source face and a target image, and AI handles the rest - matching lighting, skin tone, and expression for realistic results.",
+      "category": "Image",
+      "categoryColor": "#EC4899",
+      "tags": ["AI", "Face Swap", "Photo Editing"],
+      "status": "coming-soon",
+      "credits": {
+        "estimated": "From 100 credits/swap"
+      },
+      "howItWorks": [
+        { "step": 1, "title": "Upload source face", "description": "Add a clear photo of the face to use" },
+        { "step": 2, "title": "Upload target image", "description": "Add the image where you want the face" },
+        { "step": 3, "title": "Generate", "description": "AI swaps the faces seamlessly" },
+        { "step": 4, "title": "Download", "description": "Save your swapped image" }
+      ],
+      "useCases": [
+        "Fun social media content",
+        "Movie poster recreations",
+        "Creative photo projects",
+        "Meme creation",
+        "Entertainment"
+      ],
+      "features": [
+        { "feature": "Seamless Blending", "subtext": "Natural-looking results" },
+        { "feature": "Lighting Match", "subtext": "Adapts to target photo lighting" },
+        { "feature": "Expression Preservation", "subtext": "Maintains facial expressions" },
+        { "feature": "Multiple Faces", "subtext": "Swap multiple faces in one image" }
+      ]
     }
   ]
 }

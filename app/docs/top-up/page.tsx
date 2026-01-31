@@ -5,9 +5,10 @@ import Link from "next/link";
 import { Zap, AlertCircle } from "lucide-react";
 
 const topUpOptions = [
-  { credits: "1,000", price: "€5", perThousand: "€5.00" },
-  { credits: "5,000", price: "€20", perThousand: "€4.00", popular: true },
-  { credits: "15,000", price: "€50", perThousand: "€3.33", best: true },
+  { credits: "500", price: "€5", perCredit: "€0.01" },
+  { credits: "2,000", price: "€15", perCredit: "€0.0075", popular: true },
+  { credits: "5,000", price: "€30", perCredit: "€0.006" },
+  { credits: "15,000", price: "€75", perCredit: "€0.005", best: true },
 ];
 
 export default function TopUpPage() {
@@ -42,8 +43,7 @@ export default function TopUpPage() {
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
             <p className="text-sm text-purple-200">
-              <strong>Note:</strong> Top-Up is only available for paid plans (Basic, Pro, Team). 
-              Free users need to upgrade first.
+              <strong>Note:</strong> Credit packs can be purchased anytime. Valid for 90 days.
             </p>
           </div>
         </div>
@@ -72,15 +72,14 @@ export default function TopUpPage() {
               <div className="text-3xl font-bold text-text-primary mb-1">{option.credits}</div>
               <div className="text-sm text-text-secondary mb-4">credits</div>
               <div className="text-2xl font-bold text-accent-primary mb-1">{option.price}</div>
-              <div className="text-xs text-text-tertiary">{option.perThousand} per 1,000 credits</div>
+              <div className="text-xs text-text-tertiary">{option.perCredit} per credit</div>
             </div>
           ))}
         </div>
 
         <div className="mt-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20">
           <p className="text-sm text-green-200">
-            <strong>Tip:</strong> Buy 15,000 credits for the best price per credit. 
-            You save 33% compared to the smallest option.
+            <strong>Tip:</strong> Buy 15,000 credits for the best price per credit. Credit packs are valid for 90 days.
           </p>
         </div>
       </section>
@@ -104,7 +103,7 @@ export default function TopUpPage() {
             <div>
               <h4 className="font-medium text-text-primary mb-1">Choose your Top-Up</h4>
               <p className="text-sm text-text-secondary">
-                Select 1,000, 5,000, or 15,000 credits.
+                Select 500, 2,000, 5,000, or 15,000 credits.
               </p>
             </div>
           </div>
@@ -141,10 +140,9 @@ export default function TopUpPage() {
         
         <div className="space-y-4">
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">
-            <h4 className="font-medium text-text-primary mb-2">Do Top-Up credits expire?</h4>
+            <h4 className="font-medium text-text-primary mb-2">Do credit packs expire?</h4>
             <p className="text-sm text-text-secondary">
-              No, Top-Up credits never expire. They&apos;re added to your balance and 
-              stay available until you use them.
+              Credit packs are valid for 90 days from purchase date.
             </p>
           </div>
           <div className="p-4 rounded-xl bg-bg-secondary border border-white/10">

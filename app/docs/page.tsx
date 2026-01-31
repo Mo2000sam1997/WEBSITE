@@ -45,22 +45,17 @@ const sidebarNav = [
     ],
   },
   {
-    title: "Standard Apps",
+    title: "Apps",
     items: [
       { title: "Chat Models", href: "/docs/apps/chat-models" },
-      { title: "Image Models", href: "/docs/apps/image-models" },
+      { title: "Create Image", href: "/docs/apps/create-image" },
+      { title: "Photoshoot", href: "/docs/apps/photoshoot" },
+      { title: "Product Ads", href: "/docs/apps/product-ads" },
+      { title: "Text to 3D", href: "/docs/apps/text-to-3d" },
     ],
   },
   {
-    title: "Premium Apps",
-    items: [
-      { title: "CleanShot", href: "/docs/apps/cleanshot" },
-      { title: "Adshot", href: "/docs/apps/adshot" },
-      { title: "3D Studio", href: "/docs/apps/3d-studio" },
-    ],
-  },
-  {
-    title: "Billing",
+    title: "Credits & Billing",
     items: [
       { title: "Understanding Credits", href: "/docs/credits" },
       { title: "Pricing Plans", href: "/docs/pricing" },
@@ -72,29 +67,29 @@ const sidebarNav = [
 // Product cards for hero section
 const productCards = [
   {
-    title: "Standard Apps",
-    subtitle: "Chat & Image Models",
-    description: "15 chat models (GPT-5, Claude, Gemini, Llama) and 9 image generators (Flux.2, Seedream). Available on all plans.",
+    title: "AI Chat",
+    subtitle: "15 models",
+    description: "Chat with GPT-5, Claude, Gemini, Llama and more. From 1 credit per message.",
     icon: MessageSquare,
-    color: "#00d9ff",
+    color: "#22C55E",
     href: "/docs/apps/chat-models",
     cta: "Explore models",
   },
   {
-    title: "Premium Apps",
-    subtitle: "Professional tools",
-    description: "CleanShot for product photos, Adshot for marketing visuals, 3D Studio for 3D models.",
+    title: "AI Image & Video",
+    subtitle: "Create anything",
+    description: "Generate images, product photos, ads, and videos with AI. All in one place.",
     icon: Sparkles,
-    color: "#a78bfa",
-    href: "/docs/apps/cleanshot",
-    cta: "View premium apps",
+    color: "#EC4899",
+    href: "/docs/apps/create-image",
+    cta: "View apps",
   },
   {
-    title: "Credits System",
-    subtitle: "Simple & transparent",
-    description: "Use credits for all AI tools. See the cost before every action. No hidden fees.",
+    title: "Credits",
+    subtitle: "Pay per use",
+    description: "Every action costs credits. Simple, transparent pricing. No hidden fees.",
     icon: CreditCard,
-    color: "#4edc96",
+    color: "#3B82F6",
     href: "/docs/credits",
     cta: "Learn about credits",
   },
@@ -104,48 +99,43 @@ const productCards = [
 const apps = [
   {
     name: "Chat Models",
-    description: "15 AI chat models in one interface. From free Llama to premium Claude.",
+    description: "15 AI chat models in one interface.",
     icon: MessageSquare,
-    color: "#77bdf8",
-    credits: "1-14 credits per message",
+    color: "#22C55E",
+    credits: "1-14 credits",
     href: "/docs/apps/chat-models",
-    models: ["Llama 3.3 70B", "GPT-5 Nano", "GPT-5 Chat", "Claude Sonnet 4.5", "Gemini 2.5 Pro", "DeepSeek V3.2"],
   },
   {
-    name: "Image Models",
-    description: "9 AI image models. From budget to premium quality.",
+    name: "Create Image",
+    description: "9 AI image generators.",
     icon: ImageIcon,
-    color: "#fc85d7",
-    credits: "5-75 credits per image",
-    href: "/docs/apps/image-models",
-    models: ["Flux.2 Flex", "Flux.2 Pro", "Flux.2 Max", "GPT-5 Standard", "Gemini Pro", "Seedream 4.5"],
+    color: "#EC4899",
+    credits: "5-75 credits",
+    href: "/docs/apps/create-image",
   },
   {
-    name: "CleanShot",
-    description: "Transform smartphone photos into webshop-ready product images.",
+    name: "Photoshoot",
+    description: "Professional product photos.",
     icon: Camera,
-    color: "#4edc96",
-    credits: "100 credits per image",
-    href: "/docs/apps/cleanshot",
-    models: null,
+    color: "#EC4899",
+    credits: "100 credits",
+    href: "/docs/apps/photoshoot",
   },
   {
-    name: "Adshot",
-    description: "Generate scroll-stopping ads in 30 seconds.",
+    name: "Product Ads",
+    description: "Marketing visuals in seconds.",
     icon: Megaphone,
-    color: "#f97316",
-    credits: "120 credits per image",
-    href: "/docs/apps/adshot",
-    models: null,
+    color: "#EC4899",
+    credits: "120 credits",
+    href: "/docs/apps/product-ads",
   },
   {
-    name: "3D Studio",
-    description: "Turn text or images into 3D models. GLB/OBJ export.",
+    name: "Text to 3D",
+    description: "Turn text into 3D models.",
     icon: Box,
-    color: "#a78bfa",
-    credits: "790 credits per model",
-    href: "/docs/apps/3d-studio",
-    models: null,
+    color: "#8B5CF6",
+    credits: "790 credits",
+    href: "/docs/apps/text-to-3d",
   },
 ];
 
@@ -157,7 +147,7 @@ const creditsReference = [
   { type: "Budget Image", credits: "5-15", examples: "Flux.2 Flex (5), Gemini Flash (15)" },
   { type: "Standard Image", credits: "30-45", examples: "GPT-5 Mini (30), Flux.2 Pro (45), Seedream (45)" },
   { type: "Premium Image", credits: "60-75", examples: "GPT-5 Standard (60), Flux.2 Max (75)" },
-  { type: "Premium Apps", credits: "100-790", examples: "CleanShot (100), Adshot (120), 3D Studio (790)" },
+  { type: "Professional", credits: "100-790", examples: "Photoshoot (100), Product Ads (120), Text to 3D (790)" },
 ];
 
 export default function DocsPage() {
@@ -234,7 +224,7 @@ export default function DocsPage() {
                     className="text-lg text-text-secondary mb-8"
                   >
                     One platform, all AI tools. Learn how to use 15 chat models, 
-                    9 image generators, and premium apps like CleanShot and 3D Studio.
+                    9 image generators, plus Photoshoot, Product Ads, and Text to 3D.
                   </motion.p>
 
                   {/* Search */}
@@ -277,7 +267,7 @@ export default function DocsPage() {
                             5 MIN
                           </span>
                         </div>
-                        <span className="text-sm text-text-secondary">Get started with 750 credits</span>
+                        <span className="text-sm text-text-secondary">Get started with 150 free credits</span>
                       </div>
                       <ChevronRight className="w-5 h-5 text-text-tertiary group-hover:text-accent-primary group-hover:translate-x-1 transition-all" />
                     </Link>
@@ -445,7 +435,7 @@ export default function DocsPage() {
                         </span>
                       </div>
                       <p className="text-sm text-text-secondary">
-                        Free: 750 credits. Basic: 5,000. Pro: 25,000. Team: 100,000.
+                        Free: 150 credits. Starter: 1,500. Pro: 6,000. Business: 25,000.
                       </p>
                     </div>
                   </Link>

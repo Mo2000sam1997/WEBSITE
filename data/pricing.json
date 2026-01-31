@@ -19,22 +19,22 @@
   },
 
   "subscription_tiers": {
-    "free": { "price_eur": 0, "credits": 750 },
-    "basic": { "price_eur": 19, "credits": 5000 },
-    "pro": { "price_eur": 79, "credits": 25000 },
-    "team": { "price_eur": 279, "credits": 100000 },
-    "enterprise": { "price_eur": "custom", "credits": "unlimited" }
+    "free": { "price_eur": 0, "credits": 150 },
+    "starter": { "price_eur": 9, "credits": 1500 },
+    "pro": { "price_eur": 29, "credits": 6000 },
+    "business": { "price_eur": 99, "credits": 25000 },
+    "enterprise": { "price_eur": "custom", "credits": "custom" }
   },
 
-  "top_up": {
-    "_note": "Extra credits bijkopen (alle betaalde tiers)",
+  "credit_packs": {
+    "_note": "One-time credit purchases, valid 90 days",
     "packages": {
-      "small": { "credits": 1000, "price_eur": 5 },
-      "medium": { "credits": 5000, "price_eur": 20 },
-      "large": { "credits": 15000, "price_eur": 50 }
+      "small": { "credits": 500, "price_eur": 5 },
+      "medium": { "credits": 2000, "price_eur": 15 },
+      "large": { "credits": 5000, "price_eur": 30 },
+      "xl": { "credits": 15000, "price_eur": 75 }
     },
-    "price_per_1000_credits": 5,
-    "available_for": ["basic", "pro", "team", "enterprise"]
+    "validity_days": 90
   },
 
   "chat_models": {
@@ -246,30 +246,25 @@
   },
 
   "custom_apps": {
-    "_note": "SECRET apps met 2x margin - LOCKED voor free users",
-    "_source": "3D Mode - PROD.json + CleanShot/Adshot workflows",
-    "_min_tier": "basic",
+    "_note": "Professional apps with higher margins",
+    "_source": "3D Mode - PROD.json + Photoshoot/Product Ads workflows",
 
-    "cleanshot": {
-      "display_name": "CleanShot",
+    "photoshoot": {
+      "display_name": "Photoshoot",
       "backend": "FLUX Pro + enhancement",
       "api_cost": 0.05,
       "margin": "2x",
-      "credits_per_image": 100,
-      "model_visibility": "SECRET",
-      "min_tier": "basic"
+      "credits_per_image": 100
     },
-    "adshot": {
-      "display_name": "Adshot",
+    "product-ads": {
+      "display_name": "Product Ads",
       "backend": "FLUX Pro + creative",
       "api_cost": 0.06,
       "margin": "2x",
-      "credits_per_image": 120,
-      "model_visibility": "SECRET",
-      "min_tier": "basic"
+      "credits_per_image": 120
     },
-    "3d-studio": {
-      "display_name": "3D Studio",
+    "text-to-3d": {
+      "display_name": "Text to 3D",
       "backend": "fal.ai Hunyuan3D-v3",
       "fal_pricing": {
         "normal": 0.375,
@@ -278,9 +273,7 @@
       },
       "margin": "2x",
       "credits_per_model": 790,
-      "price_eur": 0.79,
-      "model_visibility": "SECRET",
-      "min_tier": "basic"
+      "price_eur": 0.79
     }
   },
 
@@ -302,27 +295,32 @@
       "75_credits": "Flux.2 Max"
     },
     "custom": {
-      "100_credits": "CleanShot",
-      "120_credits": "Adshot",
-      "790_credits": "3D Studio (€0.79)"
+      "100_credits": "Photoshoot",
+      "120_credits": "Product Ads",
+      "790_credits": "Text to 3D (€0.79)"
     }
   },
 
   "examples": {
-    "free_750": {
-      "chats": "750 budget chats OF 93 GPT-5 Chat OF 53 Claude Sonnet",
-      "images": "150 Flux.2 Flex OF 16 Flux.2 Pro",
-      "custom": "🔒 LOCKED (upgrade naar Basic)"
+    "free_150": {
+      "chats": "150 budget chats OR 18 GPT-5 Chat",
+      "images": "30 Flux.2 Flex OR 3 Flux.2 Pro",
+      "other": "1 Photoshoot photo"
     },
-    "basic_5000": {
-      "chats": "5000 budget chats OF 625 GPT-5 Chat",
-      "images": "1000 Flux.2 Flex OF 111 Flux.2 Pro",
-      "custom": "50 CleanShot OF 6 3D models"
+    "starter_1500": {
+      "chats": "1500 budget chats OR 187 GPT-5 Chat",
+      "images": "300 Flux.2 Flex OR 33 Flux.2 Pro",
+      "other": "15 Photoshoot OR 1 Text to 3D"
     },
-    "pro_25000": {
-      "chats": "25000 budget chats OF 3125 GPT-5 Chat",
-      "images": "5000 Flux.2 Flex OF 555 Flux.2 Pro",
-      "custom": "250 CleanShot OF 31 3D models"
+    "pro_6000": {
+      "chats": "6000 budget chats OR 750 GPT-5 Chat",
+      "images": "1200 Flux.2 Flex OR 133 Flux.2 Pro",
+      "other": "60 Photoshoot OR 7 Text to 3D"
+    },
+    "business_25000": {
+      "chats": "25000 budget chats OR 3125 GPT-5 Chat",
+      "images": "5000 Flux.2 Flex OR 555 Flux.2 Pro",
+      "other": "250 Photoshoot OR 31 Text to 3D"
     }
   }
 }
